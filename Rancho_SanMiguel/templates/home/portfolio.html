@@ -59,96 +59,26 @@
 			<h1 class="header-title">Portfolio<span>.</span></h1>
 		</div>
 	</section>
-	<!-- Page header section end -->
-
-
-	<!-- Page section start -->
-	<!--<div class="page-section spad">-->
-		<!--<div class="container">-->
-			<!--&lt;!&ndash; portfolio filter menu &ndash;&gt;-->
-			<!--<ul class="portfolio-filter">-->
-				<!--<li class="filter" data-filter="*">All</li>-->
-				<!--<li class="filter" data-filter=".photo">Photography</li>-->
-				<!--<li class="filter" data-filter=".design">Design</li>-->
-				<!--<li class="filter" data-filter=".iden">Identity</li>-->
-				<!--<li class="filter" data-filter=".corp">Corporate</li>-->
-				<!--<li class="filter" data-filter=".uxui">UI/UX</li>-->
-			<!--</ul>-->
-		<!--</div>-->
-		<!--&lt;!&ndash; portfolio items &ndash;&gt;-->
-
-		<!--<div class="portfolio-warp spad">-->
-			<!--<div id="portfolio">-->
-				<!--<div class="grid-sizer"></div>-->
-				<!--{% if object_list %}-->
-					<!--{% for i in object_list %}-->
-				<!--&lt;!&ndash; portfolio item &ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg grid-wide photo" data-setbg="{% static 'img/portfolio/1.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/1.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;&lt;!&ndash; portfolio item &ndash;&gt;&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg design corp" data-setbg="{% static 'img/portfolio/2.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/2.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;&lt;!&ndash; portfolio item &ndash;&gt;&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg iden photo uxui" data-setbg="{% static 'img/portfolio/3.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/3.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;&lt;!&ndash; portfolio item &ndash;&gt;&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg corp design" data-setbg="{% static 'img/portfolio/4.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/4.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;&lt;!&ndash; portfolio item &ndash;&gt;&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg uxui iden" data-setbg="{% static 'img/portfolio/5.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/5.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;&lt;!&ndash; portfolio item &ndash;&gt;&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg grid-long design corp" data-setbg="{% static 'img/portfolio/6.jpg' %}"><a class="img-popup" href="{% static 'img/portfolio/6.jpg' %}"></a></div>&ndash;&gt;-->
-
-				<!--&lt;!&ndash;<div class="grid-item set-bg grid-long design corp" data-setbg="{% static 'img/img.jpg' %}"><a class="img-popup" href="{% static 'img/img.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg grid-long design corp" data-setbg="{% static 'img/img.jpg' %}"><a class="img-popup" href="{% static 'img/img.jpg' %}"></a></div>&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="grid-item set-bg grid-long design corp" data-setbg="{% static 'img/img.jpg' %}"><a class="img-popup" href="{% static 'img/img.jpg' %}"></a></div>&ndash;&gt;-->
-						<!--<p>-->
-							<!--<div class="grid-item set-bg grid-wide photo" data-setbg="{{ i.img.url }}">-->
-								<!--<img class="img-popup" href="{{ i.img.url }}">-->
-							<!--</div>-->
-						<!--</p>-->
-					<!--{% endfor %}-->
-				<!--{% else %}-->
-					<!--<h2>No hay registros de la Galeria</h2>-->
-				<!--{% endif %}-->
-			<!--</div>-->
-		<!--</div>-->
-
-
-		<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
-			<!--&lt;!&ndash;<div class="pagination">&ndash;&gt;-->
-				<!--&lt;!&ndash;<a href="#">01</a>&ndash;&gt;-->
-				<!--&lt;!&ndash;<a href="" class="active">02</a>&ndash;&gt;-->
-				<!--&lt;!&ndash;<a href="">03</a>&ndash;&gt;-->
-			<!--&lt;!&ndash;</div>&ndash;&gt;-->
-		<!--&lt;!&ndash;</div>&ndash;&gt;-->
-	<!--</div>-->
-	<!-- Page section end -->
-
-			<!--{% if object_list %}-->
-				<!--{% for i in object_list %}-->
-				<!--<figure class="col-md-4">-->
-					<!--<a href="{{ i.img.url }}" data-size="1600x1067"></a>-->
-					<!--<img alt="picture" src="{{ i.img.url }}" class="img-fluid">-->
-				<!--</figure>-->
-				<!--{% endfor %}-->
-			<!--{% else %}-->
-				<!--<h2>No hay registros de la Galeria</h2>-->
-			<!--{% endif %}-->
 
 <br>
-<div class="row" style="text-align:center;" >
-	{% if object_list %}
-	{% for i in object_list %}
-		<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
-			<!--<img  class="img-fluid z-depth-1" src="{{ i.img.url }}" alt="video" data-toggle="modal">-->
-			<img  class="img-fluid z-depth-1 border border-dark rounded" src="{{ i.img.url }}"
-				  alt="video" data-toggle="modal" style="max-width: 300px; max-height: 300px; min-height: 300px; min-width: 300px">
-			<h3>{{ i.nombre }}</h3>
-			<br>
-			<!--<img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-1.jpg" alt="video" data-toggle="modal" data-target="#modal1">-->
+{% if object_list %}
+	<div class="container">
+		<div class="row" style="text-align:center;" >
+		{% for i in object_list %}
+			<div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
+				<!--<img  class="img-fluid z-depth-1" src="{{ i.img.url }}" alt="video" data-toggle="modal">-->
+				<img  class="img-fluid z-depth-1 border border-dark rounded" src="{{ i.img.url }}"
+					  alt="video" data-toggle="modal" style="max-width: 300px; max-height: 300px; min-height: 300px; min-width: 300px">
+				<h3>{{ i.nombre }}</h3>
+				<br>
+				<!--<img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-1.jpg" alt="video" data-toggle="modal" data-target="#modal1">-->
+			</div>
+		{% endfor %}
 		</div>
-	{% endfor %}
-	{% else %}
-		<h2>No hay registros de la Galeria</h2>
-	{% endif %}
-</div>
+	</div>
+{% else %}
+	<h2>No hay registros de la Galeria</h2>
+{% endif %}
 
 	<!-- Footer section start -->
 	<footer class="footer-section">

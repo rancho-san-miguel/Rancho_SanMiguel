@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
 	{% load staticfiles %}
-	<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>
+	<!--<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>-->
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -33,20 +33,25 @@
 	
 	<!-- Header section start -->   
 	<header class="header-area">
-		<div class="container">
+		<!--<div class="container-fluid">-->
 			<img src="{% static 'inicio/logorancho2sfb.png' %}" alt="" width="180" height="90">
-		</div>
+		<!--</div>-->
 		<div class="nav-switch">
 			<i class="fa fa-bars"></i>
 		</div>
 		<!--div class="phone-number">+675 334 567 223</div-->
 		<nav class="nav-menu">
 			<ul>
-				<li><a href="{% url 'index' %}">Inicio</a></li>
+				<li><a href="#">Inicio</a></li>
 				<li><a href="{% url 'about' %}">Información</a></li>
 				<li><a href="#">Noticias</a></li>
-				<li><a href="#">Galería</a></li>
+				<li><a href="{% url 'galeria_list2' %}">Galería</a></li>
 				<li><a href="#">Contacto</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}">Login</a></li>
+				{% endif %}
 			</ul>
 		</nav>
 	</header>
@@ -55,7 +60,7 @@
 
 	<!-- Page header section start -->
 	<section class="page-header-section set-bg" data-setbg="{% static 'inicio/fondo1.jpg' %}">
-		<div class="container">
+		<div class="container-fluid">
 			<h1 class="header-title">Quienes somos.</h1>
 		</div>
 	</section>
@@ -68,13 +73,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 intro-text">
-					<h1>San Miguel Temoloasco Limousin Brangus</h1>
+					<h1>San Miguel Temoloasco Limousin & Brangus</h1>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Somos una empresa comprometida con el mejoramiento de la calidad en carne de la región, introduciendo gando de la raza limousin & brangus, nuestros cementales son de la mas alta calidad avaludos por pruebas geneticas hehas por laboratorios certificados.
+							<p>Somos una empresa comprometida con el mejoramiento de la calidad en carne de la región,
+								introduciendo ganado de la raza limousin & brangus, nuestros sementales son de la más
+								alta calidad avalados por pruebas genéticas hechas por laboratorios certificados.
 						</div>
 						<div class="col-md-6">
-							<p>También tenemos presencia en expoferias ganadera como lo son la FENAZA, Feria de San Marcos, y las ferias de la región presentando sementales de la más alta calidad y teniendo presios accecibles al publico adems de contar con facilidades de pago.
+							<p>También tenemos presencia en expo ferias ganadera como lo son la FENAZA, Feria de San
+								Marcos, y las ferias de la región presentando sementales de la más alta calidad y
+								teniendo precios accesibles al público ademas de contar con facilidades de pago.
 						</div>
 					</div>
 				</div>
@@ -96,11 +105,13 @@
 					<div class="testimonials-slider" id="test-slider">
 						<div class="ts-item">
 							<h1>Misión</h1>
-							<p> Producir ganado con la mejor calidad genética, otorgar servicio de calidad con honestidad y para todos nuestros clientes. </p>
+							<p> Producir ganado con la mejor calidad genética, otorgar servicio de calidad con
+								honestidad y para todos nuestros clientes. </p>
 						</div>
 						<div class="ts-item">
 							<h1>visión</h1>
-							<p>convertirnos en un referente de l ganadería en el estado, lograr la confianza del gremio, ser productores de campeones y comprometernos siempre con la mejora continua. </p>
+							<p>Convertirnos en un referente de la ganadería en el estado, lograr la confianza del gremio,
+								ser productores de campeones y comprometernos siempre con la mejora continua. </p>
 
 						</div>
 						<div class="ts-item">
@@ -120,8 +131,8 @@
 	<!-- Team section start -->
 	<section class="team-section spad">
 		<div class="container">
-			<div class="section-title mb100">
-				<h1>Propietarios</h1>
+			<div style="background-color: #ae7436;">
+				<h1> Propietarios</h1>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
