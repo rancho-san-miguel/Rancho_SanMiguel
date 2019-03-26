@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
 	{% load staticfiles %}
-	<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>
+	<link href="#" rel="shortcut icon"/>
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -33,20 +33,25 @@
 	
 	<!-- Header section start -->   
 	<header class="header-area">
-		<a href="{% url 'galeria_list2' %}" class="logo-area">
-			<img src="{% static 'img/logo.png' %}" alt="">
+		<a href="#" class="logo-area">
+			<img src="{% static 'inicio/logorancho2sfb.png' %}" alt="" width="180" height="90">
 		</a>
 		<div class="nav-switch">
 			<i class="fa fa-bars"></i>
 		</div>
-		<div class="phone-number">+675 334 567 223</div>
+		<!--<div class="phone-number">+675 334 567 223</div>-->
 		<nav class="nav-menu">
 			<ul>
-				<li><a href="{% url 'galeria_list2' %}">Home</a></li>
-				<li><a href="about.html">About us</a></li>
-				<li><a href="service.html">Services</a></li>
-				<li class="active"><a href="portfolio.html">Portfolio</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="{% url 'index' %}">Inicio</a></li>
+				<li><a href="{% url 'about' %}">Información</a></li>
+				<li><a href="#">Noticias</a></li>
+				<li><a href="{% url 'galeria_list2' %}">Galería</a></li>
+				<li><a href="{% url 'contact' %}">Contacto</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}">Login</a></li>
+				{% endif %}
 			</ul>
 		</nav>
 	</header>
@@ -54,9 +59,9 @@
 
 
 	<!-- Page header section start -->
-	<section class="page-header-section set-bg" data-setbg="{% static 'img/header-bg.jpg' %}">
+	<section class="page-header-section set-bg" data-setbg="{% static 'inicio/fondo1.jpg' %}">
 		<div class="container">
-			<h1 class="header-title">Portfolio<span>.</span></h1>
+			<h1 class="header-title">Galeria<span>.</span></h1>
 		</div>
 	</section>
 
@@ -98,42 +103,38 @@
 						<div class="col-md-4">
 							<div class="footer-item">
 								<ul>
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About us</a></li>
+									<li><a href="#">Inicio</a></li>
+									<li><a href="#">Informacion</a></li>
 									<li><a href="#">Services</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="footer-item">
+								<ul>
 									<li><a href="#">Portfolio</a></li>
 									<li><a href="#">Blog</a></li>
+									<li><a href="#">Desarrolladores</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="footer-item">
-								<ul>
-									<li><a href="#">Terms & Conditions</a></li>
-									<li><a href="#">FAQ</a></li>
-									<li><a href="#">Help Desk</a></li>
-									<li><a href="#">Job Aplications</a></li>
-									<li><a href="#">Site Map</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="footer-item">
-								<ul>
-									<li><a href="#">Privacy</a></li>
-									<li><a href="#">Contact us</a></li>
-									<li><a href="#">Newsletter</a></li>
-									<li><a href="#">Clients Testimonials</a></li>
-									<li><a href="#">FAQ</a></li>
-								</ul>
-							</div>
-						</div>
+						<!--<div class="col-md-4">-->
+							<!--<div class="footer-item">-->
+								<!--<ul>-->
+									<!--<li><a href="#">Privacy</a></li>-->
+									<!--<li><a href="#">Contact us</a></li>-->
+									<!--<li><a href="#">Newsletter</a></li>-->
+									<!--<li><a href="#">Clients Testimonials</a></li>-->
+									<!--<li><a href="#">FAQ</a></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-     <div class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved.  <br>This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>
+     <!--<div class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved.  <br>This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>-->
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 	</footer>
 	<!-- Footer section end -->

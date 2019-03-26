@@ -42,11 +42,11 @@
 		<!--div class="phone-number">+675 334 567 223</div-->
 		<nav class="nav-menu">
 			<ul>
-				<li><a href="#">Inicio</a></li>
+				<li><a href="{% url 'index' %}">Inicio</a></li>
 				<li><a href="{% url 'about' %}">Información</a></li>
 				<li><a href="#">Noticias</a></li>
 				<li><a href="{% url 'galeria_list2' %}">Galería</a></li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="{% url 'contact' %}">Contacto</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'logout' %}">Logout</a></li>
 				{% else %}
@@ -61,7 +61,7 @@
 	<!-- Page header section start -->
 	<section class="page-header-section set-bg" data-setbg="{% static 'inicio/fondo1.jpg' %}">
 		<div class="container-fluid">
-			<h1 class="header-title">Quienes somos.</h1>
+			<h1 class="header-title">Quienes somos<span>.</span></h1>
 		</div>
 	</section>
 	<!-- Page header section end -->
@@ -168,9 +168,9 @@
 						las mejores lineas genéticas, con las mejores caracteristicas para que usted y su rancho cuenten con
 						sementales vigorosos, finos y adaptables, ademas de tener grandes facilidades de pago.</p>
 				</div>
-				<div class="col-lg-3 text-lg-right">
-					<a href="#" class="site-btn sb-dark mt-4">Conocenos</a>
-				</div>
+				<!--<div class="col-lg-3 text-lg-right">-->
+					<!--<a href="#" class="site-btn sb-dark mt-4">Conocenos</a>-->
+				<!--</div>-->
 			</div>
 		</div>
 	</section>

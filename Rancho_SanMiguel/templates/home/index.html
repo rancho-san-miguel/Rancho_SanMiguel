@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
 	{% load staticfiles %}
-	<!--<link href="{% static 'img/favicon.ico' %}" rel="shortcut icon"/>-->
+	<link href="#" rel="shortcut icon"/>
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -42,11 +42,11 @@
 		<!--<div class="phone-number">+675 334 567 223</div>-->
 		<nav class="nav-menu">
 			<ul>
-				<li><a href="#">Inicio</a></li>
+				<li><a href="{% url 'index' %}">Inicio</a></li>
 				<li><a href="{% url 'about' %}">Información</a></li>
 				<li><a href="#">Noticias</a></li>
 				<li><a href="{% url 'galeria_list2' %}">Galería</a></li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="{% url 'contact' %}">Contacto</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'logout' %}">Logout</a></li>
 				{% else %}
@@ -77,7 +77,7 @@
 			<div class="hero-slide-item set-bg" data-setbg="{% static 'inicio/fondo.jpg' %}">
 				<div class="slide-inner">
 					<div class="container">
-						<h1 style="text-align: center">Rancho San Miguel <br> Temoloasco Limousin & Brangus</h1>
+						<h1 style="text-align: center; -webkit-text-stroke: 1px black; color:white;">Rancho San Miguel <br> Temoloasco Limousin & Brangus</h1>
 						<!--<a href="#" class="site-btn sb-light">See Project</a>-->
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 			<div class="hero-slide-item set-bg" data-setbg="{% static 'inicio/logo1.jpg' %}">
 				<div class="slide-inner">
 					<div class="container">
-						<h1 style="text-align: center">Rancho San Miguel <br>Temoloasco Limousin & Brangus</h1>
+						<h1 style="text-align: center; -webkit-text-stroke: 1px black; color:white;">Rancho San Miguel <br>Temoloasco Limousin & Brangus</h1>
 						<!--<a href="#" class="site-btn sb-light">See Project</a>-->
 					</div>	
 				</div>
