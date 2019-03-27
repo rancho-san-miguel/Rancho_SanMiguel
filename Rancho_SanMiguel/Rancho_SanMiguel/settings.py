@@ -130,7 +130,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Despues de logearse se redirecciona a la pantalla
-LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_REDIRECT_URL = reverse_lazy('index2')
+# Despues de des-logearse se redirecciona a la pantalla
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
 
 EMAIL_USE_TLS = True
