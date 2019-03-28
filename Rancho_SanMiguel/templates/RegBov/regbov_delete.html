@@ -2,7 +2,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Detalles de Galeria
+Detalles de Bovino
 {% endblock %}
 
 {% block contenido %}
@@ -10,6 +10,6 @@ Detalles de Galeria
     {% csrf_token %}
     <h2>Quieres eliminar el objeto con el id:{{ object.id }} y el nombre {{ object.nombre }}</h2>
     <button class="btn btn-danger" type="submit">Si, Eliminar</button>
-    <a class="btn btn-primary" href="{% url 'regbov_list' %}">No, Cancelar</a>
+    <a class="btn btn-primary" href="{% url 'bovino_list' %}">No, Cancelar</a>
 </form>
 {% endblock %}

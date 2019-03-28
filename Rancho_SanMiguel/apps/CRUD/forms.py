@@ -3,8 +3,6 @@ from .models import *
 
 
 class Ganado_Form(forms.ModelForm):
-
-
     class Meta:
         model  = GANADO
         fields = {
@@ -58,7 +56,7 @@ class Ganado_Form(forms.ModelForm):
             'no_padre': forms.TextInput(attrs={'class': 'form-control'}),
             'no_madre': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_nacimiento': forms.DateTimeInput(attrs={'class': 'form-control'}),
-            'tipo_nacimiento': forms.TextInput(attrs={'class': 'form-control'}),
+            'tipo_nacimiento': forms.DateTimeInput(attrs={'class': 'form-control'}),
             'tipo_parto': forms.TextInput(attrs={'class': 'form-control'}),
             'tipo_servicio': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_servicio': forms.DateTimeInput(attrs={'class': 'form-control'}),

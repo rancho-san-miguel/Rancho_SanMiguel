@@ -10,7 +10,7 @@ Galeria
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Imagen</th>
+                <th>Img</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -21,12 +21,12 @@ Galeria
                         <td>{{ i.id }}</td>
                         <td>{{ i.nombre }}</td>
                         <td><img src="{{ i.img.url }}" class="col-md-1"></td>
-                        <!--<td>{{ i.created }}</td>-->
+                                                <!--<td>{{ i.created }}</td>-->
                         <!--<td>{{ i.updated }}</td>-->
                         <td>
-                            <a class="btn btn-primary" href="{% url 'regbov_show' i.pk %}">Ver</a>
-                            <a class="btn btn-success" href="{% url 'regbov_update' i.pk %}">Editar</a>
-                            <a class="btn btn-danger" href="{% url 'regbov_delete' i.pk %}">Eliminar</a>
+                            <a class="btn btn-primary" href="{% url 'bovino_show' i.pk %}">Ver</a>
+                            <a class="btn btn-success" href="{% url 'bovino_update' i.pk %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'bovino_delete' i.pk %}">Eliminar</a>
                         </td>
                     </tr>
                 {% endfor %}

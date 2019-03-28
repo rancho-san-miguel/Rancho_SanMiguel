@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Galeria
+Registro bovino
 {% endblock %}
 
 
@@ -10,41 +10,60 @@ Galeria
     <div>
         <label>{{ form.nombre.label }}:</label>
         {{ form.nombre }}
+
         <label>{{ form.arete.label }}:</label>
         {{ form.arete }}
+
         <label>{{ form.siniga.label }}:</label>
         {{ form.siniga }}
+
         <label>{{ form.sexo.label }}:</label>
         {{ form.sexo }}
+
         <label>{{ form.propietario.label }}:</label>
         {{ form.propietario }}
+
         <label>{{ form.ganadera.label }}:</label>
         {{ form.ganadera }}
+
         <label>{{ form.no_padre.label }}:</label>
         {{ form.no_padre }}
+
         <label>{{ form.no_madre.label }}:</label>
         {{ form.no_madre }}
+
         <label>{{ form.fecha_nacimiento.label }}:</label>
         {{ form.fecha_nacimiento }}
+
         <label>{{ form.tipo_nacimiento.label }}:</label>
         {{ form.tipo_nacimiento }}
+
         <label>{{ form.tipo_parto.label }}:</label>
         {{ form.tipo_parto }}
+
         <label>{{ form.tipo_servicio.label }}:</label>
         {{ form.tipo_servicio }}
+
+        <label>{{ form.fecha_servicio.label }}:</label>
+        {{ form.fecha_servicio }}
+
         <label>{{ form.localizacion_fierro.label }}:</label>
         {{ form.localizacion_fierro }}
+
         <label>{{ form.potrero.label }}:</label>
         {{ form.potrero }}
+
         <label>{{ form.estado.label }}:</label>
         {{ form.estado }}
-
+        <br>
         <label>{{ form.img.label }}:</label>
         {{ form.img }}
+        <br>
         <br>
         <div class="trans">
             <button class="btn btn-success" type="submit">Guardar</button>
         </div>
     </div>
+    <br>
 </form>
 {% endblock %}

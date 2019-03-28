@@ -22,7 +22,7 @@ class GANADO(models.Model):
     localizacion_fierro = models.CharField(max_length=10)
     potrero= models.CharField(max_length=1)
     estado = models.CharField(choices=opciones2, max_length=10)
-    img = models.ImageField(verbose_name="Imagen", upload_to='Galeria')
+    img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

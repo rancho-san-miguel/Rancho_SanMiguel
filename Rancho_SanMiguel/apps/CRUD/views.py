@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from itertools import chain
 from .models import *
 from .forms import Ganado_Form
 
 from django.urls import reverse_lazy
-from django.contrib.auth.admin import User
 
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
@@ -16,8 +14,6 @@ class Bovino_Create(CreateView):
 
 class Bovino_List(ListView):
     queryset = GANADO.objects.order_by('id')
-    # queryset2 = INVENTARIO.objects.order_by('id')
-    # result_list = list(chain(queryset, queryset2))
     template_name = 'RegBov/regbov_list.html'
     paginate_by = 5
 
