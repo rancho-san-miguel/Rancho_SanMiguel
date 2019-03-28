@@ -1,5 +1,7 @@
 from django.db import models
 from model_utils import Choices
+from django.dispatch import receiver
+from django.db.models.signals import post_delete, pre_save
 
 class GANADO(models.Model):
     opciones = Choices('Macho','Hembra')
@@ -20,6 +22,7 @@ class GANADO(models.Model):
     localizacion_fierro = models.CharField(max_length=10)
     potrero= models.CharField(max_length=1)
     estado = models.CharField(choices=opciones2, max_length=10)
+    img = models.ImageField(verbose_name="Imagen", upload_to='Galeria')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -28,6 +31,26 @@ class GANADO(models.Model):
 
     def __str__(self):
         return self.nombre
+
+# Borrar la foto vieja si se le da al boton borrar
+@receiver(post_delete, sender=GANADO)
+def photo_post_delete_handler(sender, **kwargs):
+    listiningImage = kwargs['instance']
+    storage, path = listiningImage.img.storage, listiningImage.img.path
+    storage.delete(path)
+
+# Borrar la foro vieja si se actualiza
+@receiver(pre_save, sender=GANADO)
+def update_img(sender, instance, **kwargs):
+    if instance.pk:
+        try:
+            old_img = GANADO.objects.get(pk=instance.pk).img
+        except:
+            return
+        else:
+            new_img = instance.img
+            if old_img and old_img.url != new_img.url:
+                old_img.delete(save=False)
 
 class BITACORA_GANADO(models.Model):
     arete = models.CharField(max_length=10)

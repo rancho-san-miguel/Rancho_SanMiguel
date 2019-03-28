@@ -4,13 +4,13 @@ from .models import *
 
 
 class inventario(admin.ModelAdmin):
-    readonly_fields = ('id', 'created', 'updated')
+     readonly_fields = ('id', 'created', 'updated')
 
 class ganado(admin.ModelAdmin):
     readonly_fields = ('id', 'created', 'updated')
 
 class bitacora(admin.ModelAdmin):
-    readonly_fields = ('id', 'created', 'updated')
+     readonly_fields = ('id', 'created', 'updated')
 
 
 admin.site.register(GANADO, ganado)

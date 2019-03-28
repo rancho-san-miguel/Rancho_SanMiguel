@@ -1,0 +1,18 @@
+
+{% extends 'base/base.html' %}
+
+{% block title %}
+Detalles de la escuela
+{% endblock %}
+
+{% block contenido %}
+
+    <p><strong>#:</strong> {{ object.id }}</p>
+    <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+    <p><strong>Fecha de creación:</strong> {{ object.created }}</p>
+    <p><strong>Fecha de actualización:</strong>{{ object.updated }}</p>
+    <p><img src="{{ object.img.url }}" class="col-md-3"></p>
+    <a href="{% url 'regbov_list' %}">Ok</a>
+
+
+{% endblock %}
