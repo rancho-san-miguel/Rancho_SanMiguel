@@ -6,12 +6,32 @@ Detalles de bovino
 {% endblock %}
 
 {% block contenido %}
+    <p><img src="{{ object.img.url }}" class="col-md-3"></p>
 
     <p><strong>#:</strong> {{ object.id }}</p>
     <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+    
+    <p><strong>Arete:</strong> {{ object.arete }}</p>
+    <p><strong>siniga:</strong> {{ object.siniga }}</p>
+    <p><strong>sexo:</strong> {{ object.sexo }}</p>
+    <p><strong>propietario:</strong> {{ object.propietario }}</p>
+    <p><strong>ganadera:</strong> {{ object.ganadera }}</p>
+    <p><strong>no_padre:</strong> {{ object.no_padre }}</p>
+    <p><strong>no_madre:</strong> {{ object.no_madre }}</p>
+    <p><strong>fecha_nacimiento:</strong> {{ object.fecha_nacimiento }}</p>
+    <p><strong>tipo_nacimiento:</strong> {{ object.tipo_nacimiento }}</p>
+    <p><strong>tipo_parto:</strong> {{ object.tipo_parto }}</p>
+    <p><strong>tipo_servicio:</strong> {{ object.tipo_servicio }}</p>
+    <p><strong>fecha_servicio:</strong> {{ object.fecha_servicio }}</p>
+    <p><strong>localizacion_fierro:</strong> {{ object.localizacion_fierro }}</p>
+    <p><strong>potrero:</strong> {{ object.potrero }}</p>
+    <p><strong>estado:</strong> {{ object.estado }}</p>
+
+
+
     <p><strong>Fecha de creación:</strong> {{ object.created }}</p>
     <p><strong>Fecha de actualización:</strong>{{ object.updated }}</p>
-    <p><img src="{{ object.img.url }}" class="col-md-3"></p>
+
     <a href="{% url 'bovino_list' %}">Ok</a>
 
 
