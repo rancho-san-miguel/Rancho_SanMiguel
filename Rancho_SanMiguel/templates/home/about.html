@@ -49,6 +49,7 @@
 				<li><a href="{% url 'contact' %}">Contacto</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'logout' %}">Logout</a></li>
+					<li><a href="{% url 'index2' %}">Panel</a></li>
 				{% else %}
 					<li><a href="{% url 'login' %}">Login</a></li>
 				{% endif %}
@@ -109,7 +110,7 @@
 								honestidad y para todos nuestros clientes. </p>
 						</div>
 						<div class="ts-item">
-							<h1>visión</h1>
+							<h1>Visión</h1>
 							<p>Convertirnos en un referente de la ganadería en el estado, lograr la confianza del gremio,
 								ser productores de campeones y comprometernos siempre con la mejora continua. </p>
 

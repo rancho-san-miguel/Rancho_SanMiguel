@@ -4,6 +4,15 @@
 Registro bovino
 {% endblock %}
 
+{% block estilo %}
+<style>
+.snps-inline-select {
+    width: auto;
+    display: inline-block;
+}
+</style>
+{% endblock %}
+
 
 {% block contenido %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
@@ -32,8 +41,9 @@ Registro bovino
         <label>{{ form.no_madre.label }}:</label>
         {{ form.no_madre }}
 
-        <label>{{ form.fecha_nacimiento.label }}:</label>
-        {{ form.fecha_nacimiento }}
+
+        <label>{{ form.fecha_nacimiento.label }}:</label><br>
+        {{ form.fecha_nacimiento }}<br>
 
         <label>{{ form.tipo_nacimiento.label }}:</label>
         {{ form.tipo_nacimiento }}
@@ -41,29 +51,30 @@ Registro bovino
         <label>{{ form.tipo_parto.label }}:</label>
         {{ form.tipo_parto }}
 
-        <label>{{ form.tipo_servicio.label }}:</label>
-        {{ form.tipo_servicio }}
+        <!--<label>{{ form.tipo_servicio.label }}:</label>-->
+        <!--{{ form.tipo_servicio }}-->
 
-        <label>{{ form.fecha_servicio.label }}:</label>
-        {{ form.fecha_servicio }}
+        <!--<label>{{ form.fecha_servicio.label }}:</label>-->
+        <!--{{ form.fecha_servicio }}-->
 
         <label>{{ form.localizacion_fierro.label }}:</label>
         {{ form.localizacion_fierro }}
 
-        <label>{{ form.potrero.label }}:</label>
-        {{ form.potrero }}
+        <!--<label>{{ form.potrero.label }}:</label>-->
+        <!--{{ form.potrero }}-->
 
         <label>{{ form.estado.label }}:</label>
         {{ form.estado }}
         <br>
-        <label>{{ form.img.label }}:</label>
-        {{ form.img }}
-        <br>
-        <br>
+        <!--<label>{{ form.img.label }}:</label>-->
+        <!--{{ form.img }}-->
+        <!--<br>-->
+        <!--<br>-->
         <div class="trans">
             <button class="btn btn-success" type="submit">Guardar</button>
         </div>
     </div>
     <br>
 </form>
+
 {% endblock %}

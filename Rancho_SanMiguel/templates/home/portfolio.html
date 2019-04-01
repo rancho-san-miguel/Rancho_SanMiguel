@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Arcade - Architecture</title>
+	<title>Galeria</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Arcade - Architecture Template">
 	<meta name="keywords" content="arcade, architecture, onepage, creative, html">
@@ -49,6 +49,7 @@
 				<li><a href="{% url 'contact' %}">Contacto</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'logout' %}">Logout</a></li>
+					<li><a href="{% url 'index2' %}">Panel</a></li>
 				{% else %}
 					<li><a href="{% url 'login' %}">Login</a></li>
 				{% endif %}

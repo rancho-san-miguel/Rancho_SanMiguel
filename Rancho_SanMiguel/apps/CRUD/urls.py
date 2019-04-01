@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .views import Bovino_Create,Bovino_List, Bovino_Update, Bovino_Show, Bovino_Delete
 urlpatterns = [
     path('bovino/', Bovino_Create.as_view(), name="bovino_crear"),
     path('bovinolist/', Bovino_List.as_view(), name="bovino_list"),
