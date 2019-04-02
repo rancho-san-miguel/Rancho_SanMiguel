@@ -25,7 +25,7 @@ class Ganado_Form(forms.ModelForm):
             'localizacion_fierro',
             # 'potrero',
             'estado',
-            # 'img',
+            'img',
 
         }
         labels = {
@@ -45,7 +45,7 @@ class Ganado_Form(forms.ModelForm):
             'localizacion_fierro':'Localizacion de fierro',
             # 'potrero':'Potrero',
             'estado':'Estado',
-            # 'img':'Foto',
+            'img':'Foto',
         }
 
 
@@ -67,5 +67,5 @@ class Ganado_Form(forms.ModelForm):
             'localizacion_fierro': forms.TextInput(attrs={'class': 'form-control'}),
             # 'potrero': forms.TextInput(attrs={'class': 'form-control'}),
             'estado': forms.Select(attrs={'class': 'form-control'}),
-            # 'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
+            'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
         }
