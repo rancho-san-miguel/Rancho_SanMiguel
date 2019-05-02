@@ -21,11 +21,11 @@ Login
         {% render_field form.password placeholder="Contraseña" class="form-control" required="" %}
 
         <br>
-        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Enter</button>
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Entrar</button>
         <!--<input type="submit" value="Enter" />-->
         <!--<input type="hidden" name="next" value="{{ next }}" />-->
     </form>
   </div>
-<p><a id="forgot_pswd" href="{% url 'password_reset' %}">Has olvidado tu contraseña</a></p>
+<p><a id="forgot_pswd" href="{% url 'password_reset' %}">¿Has olvidado tu contraseña?</a></p>
 
 {% endblock %}

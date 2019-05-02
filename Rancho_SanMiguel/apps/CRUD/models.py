@@ -19,8 +19,8 @@ class GANADO(models.Model):
     no_padre = models.IntegerField()
     no_madre = models.IntegerField()
     fecha_nacimiento = models.DateField()
-    tipo_nacimiento= models.CharField(choices=tc, max_length=15)
-    tipo_parto= models.CharField(choices=tp, max_length=15)
+    tipo_nacimiento = models.CharField(choices=tc, max_length=15)
+    tipo_parto = models.CharField(choices=tp, max_length=15)
     #tipo_servicio= models.CharField(choices=ts, max_length=15)   esto va dentro de la de control ganado
     #fecha_servicio= models.DateTimeField()
     localizacion_fierro = models.CharField(max_length=10)
@@ -36,7 +36,32 @@ class GANADO(models.Model):
     def __str__(self):
         return self.nombre
 
+class BITACORA_GANADO(models.Model):
+    arete = models.CharField(max_length=10)
+    descripcion = models.CharField(max_length=100)
+    lugar = models.CharField(max_length=100)
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["id"]
 
+    def __str__(self):
+        return self.arete
+
+
+class HISTORIAL_VENTAS_BOVINO(models.Model):
+    descripcion = models.TextField()
+    # cantidad = models.IntegerField()
+    total = models.FloatField()
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.id
 # class GANADO(models.Model):
 #     opciones = Choices('Macho','Hembra')
 #     opciones2 = Choices('Vendida','Viva','Muerta')
@@ -109,11 +134,12 @@ class GANADO(models.Model):
 #         return self.arete
 #
 # class HISTORIAL_VENTAS(models.Model):
-#     tipo = models.CharField(max_length=30)
+#     opciones = Choices('Ganado', 'Leche')
+#     tipo = models.CharField(choices=opciones)
 #     descripcion = models.TextField()
 #     cantidad = models.IntegerField()
 #     total = models.FloatField()
-#     fecha = models.DateTimeField()
+#     fecha = models.DateField()
 #     created = models.DateTimeField(auto_now_add=True)
 #     updated = models.DateTimeField(auto_now=True)
 #     class Meta:
@@ -121,7 +147,7 @@ class GANADO(models.Model):
 #
 #     def __str__(self):
 #         return self.id
-#
+# #
 # class INVENTARIO(models.Model):
 #     opciones = Choices('Porciono','Agricola','Bovino')
 #     producto = models.CharField(max_length=30)

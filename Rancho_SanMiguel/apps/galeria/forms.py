@@ -17,6 +17,6 @@ class GaleriaForm(forms.ModelForm):
         }
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Titulo de la imagen'}),
             'img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
         }

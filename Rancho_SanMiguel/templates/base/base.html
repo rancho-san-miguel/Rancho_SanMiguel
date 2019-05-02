@@ -30,7 +30,7 @@
                         <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'index' %}" >Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Galeria</a>
+                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Galería</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_create' %}">Crear</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_list' %}">Listar</a>
@@ -41,6 +41,13 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_crear' %}">Crear</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_list' %}">Listar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bitacora</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_crear' %}">Crear</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>
                         </div>
                     </li>
 
@@ -65,7 +72,7 @@
     {% block title2 %}
     {% endblock %}
 </h1>
-<div class="container-fluid">
+<div class="container">
 {% block contenido %}
 {% endblock %}
 </div>

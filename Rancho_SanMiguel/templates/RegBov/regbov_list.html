@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Galeria
+Bovino
 {% endblock %}
 
 {% block title2 %}
@@ -31,6 +31,7 @@ Bovino
                             <a class="btn btn-primary" href="{% url 'bovino_show' i.pk %}">Ver</a>
                             <a class="btn btn-success" href="{% url 'bovino_update' i.pk %}">Editar</a>
                             <a class="btn btn-danger" href="{% url 'bovino_delete' i.pk %}">Eliminar</a>
+                            <a class="btn btn-danger" href="{% url 'bovino_delete' i.pk %}">Vender</a>
                         </td>
                     </tr>
                 {% endfor %}
