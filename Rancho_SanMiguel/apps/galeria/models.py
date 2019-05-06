@@ -11,7 +11,7 @@ class Galeria(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
-        ordering = ["id"]
+        ordering = ["-updated"]
 
     def __str__(self):
         return self.nombre

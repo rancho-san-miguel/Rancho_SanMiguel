@@ -1,5 +1,5 @@
 from django import forms
-from .models import GANADO, BITACORA_GANADO
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO
 from django.forms.widgets import SelectDateWidget
 
 
@@ -36,6 +36,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto',
             'localizacion_fierro',
             'estado',
+            'galeria_venta',
             'img',
 
         }
@@ -53,6 +54,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto':'Tipo de parto',
             'localizacion_fierro':'Fierro',
             'estado':'Estado',
+            'galeria_venta':'Ponerlo a la venta en la galeria',
             'img':'Foto',
         }
 
@@ -71,6 +73,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto': forms.Select(attrs={'class': 'form-control'}),
             'localizacion_fierro': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la localización del fierro'}),
             'estado': forms.Select(attrs={'class': 'form-control'}),
+            'galeria_venta': forms.CheckboxInput(),
             'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
         }
 
@@ -95,6 +98,27 @@ class Bitacora_Ganado_form(forms.ModelForm):
             'lugar': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
+class Historial_Ventas_Bovino_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_BOVINO
+        fields = {
+            # 'id_bovino',
+            'descripcion',
+            'total',
+            'fecha',
+        }
+        labels = {
+            # 'id_bovino':'Id del bovino',
+            'descripcion':'Descripción',
+            'total':'Costo total',
+            'fecha':'Fecha de la venta',
+        }
+        widgets = {
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción del producto'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
+
 
 # class Historial_Ventas_form(forms.ModelForm):
 #     class Meta:

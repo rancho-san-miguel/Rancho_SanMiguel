@@ -16,8 +16,8 @@ class GANADO(models.Model):
     sexo = models.CharField(choices=opciones, max_length=10)
     propietario = models.CharField(max_length=20)
     ganadera = models.CharField(max_length=20)
-    no_padre = models.IntegerField()
-    no_madre = models.IntegerField()
+    no_padre = models.IntegerField(blank=True, null=True)
+    no_madre = models.IntegerField(blank=True, null=True)
     fecha_nacimiento = models.DateField()
     tipo_nacimiento = models.CharField(choices=tc, max_length=15)
     tipo_parto = models.CharField(choices=tp, max_length=15)
@@ -26,6 +26,7 @@ class GANADO(models.Model):
     localizacion_fierro = models.CharField(max_length=10)
     #potrero= models.CharField(max_length=1) esto va dentro de control ganado
     estado = models.CharField(choices=opciones2, max_length=10)
+    galeria_venta = models.BooleanField(default=False)
     img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -51,7 +52,9 @@ class BITACORA_GANADO(models.Model):
 
 
 class HISTORIAL_VENTAS_BOVINO(models.Model):
-    descripcion = models.TextField()
+    # id_bovino = models.ForeignKey(GANADO, on_delete=models.CASCADE)
+    id_bovino = models.CharField(max_length=100, default="0000")
+    descripcion = models.CharField(max_length=100)
     # cantidad = models.IntegerField()
     total = models.FloatField()
     fecha = models.DateField()
@@ -62,6 +65,9 @@ class HISTORIAL_VENTAS_BOVINO(models.Model):
 
     def __str__(self):
         return self.id
+
+
+
 # class GANADO(models.Model):
 #     opciones = Choices('Macho','Hembra')
 #     opciones2 = Choices('Vendida','Viva','Muerta')
