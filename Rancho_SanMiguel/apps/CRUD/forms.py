@@ -1,5 +1,5 @@
 from django import forms
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, HISTORIAL_VENTAS_LECHE
 from django.forms.widgets import SelectDateWidget
 
 
@@ -137,6 +137,25 @@ class Historial_Ventas_Cerdos_form(forms.ModelForm):
         widgets = {
             'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad cerdos'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
+
+class Historial_Ventas_Leche_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_LECHE
+        fields = {
+            'cantidad',
+            'total',
+            'fecha',
+        }
+        labels = {
+            'cantidad':'Cantidad',
+            'total':'Total',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 15.20'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 

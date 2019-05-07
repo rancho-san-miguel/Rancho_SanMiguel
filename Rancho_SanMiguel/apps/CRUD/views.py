@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, HISTORIAL_VENTAS_LECHE
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form, Historial_Ventas_Cerdos_form
 from .forms import HISTORIAL_VENTAS_CERDOS
+from .forms import Historial_Ventas_Leche_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -204,6 +205,31 @@ def Venta_Cerdos_Delete(request, pk):
         'form':query,
     }
     return render(request, 'Ventas/ventas_cerdos_delete.html', dic)
+
+"Venta de Leche"
+
+class Venta_Leche_Create(CreateView):
+    model = HISTORIAL_VENTAS_LECHE
+    form_class = Historial_Ventas_Leche_form
+    template_name = 'Ventas/ventas_cerdos_form.html'
+    success_url = reverse_lazy('leche_list')
+
+class Venta_Leche_List(ListView):
+    # queryset = HISTORIAL_VENTAS_CERDOS.objects.all()
+    queryset = HISTORIAL_VENTAS_LECHE.objects.exclude(estado=True).order_by('id')
+    template_name = 'Ventas/ventas_leche_list.html'
+    paginate_by = 5
+
+def Venta_Leche_Delete(request, pk):
+    query = HISTORIAL_VENTAS_LECHE.objects.get(pk=pk)
+    if request.method == 'POST':
+        query.estado = True
+        query.save()
+        return redirect('cerdos_list')
+    dic = {
+        'form':query,
+    }
+    return render(request, 'Ventas/ventas_leche_delete.html', dic)
     #
     # if request.method == 'POST':
     #     form2 = Historial_Ventas_Bovino_form(request.POST)
