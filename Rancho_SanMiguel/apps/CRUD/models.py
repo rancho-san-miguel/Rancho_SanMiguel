@@ -125,20 +125,21 @@ class HISTORIAL_VENTAS_BOVINO(models.Model):
 #     def __str__(self):
 #         return self.arete
 #
-# class CONTROL_GANADO(models.Model):
-#     arete = models.CharField(max_length=10)
-#     motivo = models.CharField(max_length=30)
-#     descripcion = models.TextField()
-#     lugar = models.CharField(max_length=100)
-#     fecha = models.DateTimeField()
-#     created = models.DateTimeField(auto_now_add=True)
-#     updated = models.DateTimeField(auto_now=True)
-#     class Meta:
-#         ordering = ["id"]
-#
-#     def __str__(self):
-#         return self.arete
-#
+
+class CONTROL_GANADO(models.Model):
+    mot = Choices('Pesaje', 'Servicio')
+    arete = models.CharField(max_length=10)
+    motivo = models.CharField(choices=mot, max_length=15)
+    descripcion = models.TextField()
+    lugar = models.CharField(max_length=100)
+    fecha = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["id"]
+    def __str__(self):
+        return self.id
+
 # class HISTORIAL_VENTAS(models.Model):
 #     opciones = Choices('Ganado', 'Leche')
 #     tipo = models.CharField(choices=opciones)
