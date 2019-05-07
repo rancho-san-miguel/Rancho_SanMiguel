@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO
-from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS
+from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form#, Historial_Ventas_Bovino_form
+from .forms import HISTORIAL_VENTAS_CERDOS
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -112,6 +113,7 @@ class Bitacora_Delete(DeleteView):
 
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de ganado"
+
 def Bovino_update_ventas_create(request, pk):
     print("Este es el id: ",pk)
     query = GANADO.objects.get(pk=pk)
@@ -122,7 +124,7 @@ def Bovino_update_ventas_create(request, pk):
         if form2.is_valid():
             var = form2.save()
 
-            var.id_bovino = query.nombre
+            # var.id_bovino = query.nombre
             var.id_bovino = pk
             var.save()
 
@@ -177,9 +179,18 @@ class Venta_Bovino_Delete(DeleteView):
     success_url = reverse_lazy('venta_list')
 
 
+#---------------------------------------------------------------------------------------------------------------------
+"Venta de leche"
 
+# class Venta_Cerdos_List(CreateView):
+#     model = HISTORIAL_VENTAS_CERDOS
+#     form_class = HISTORIAL_VENTAS_CERDOS
+#     template_name = 'Ventas/'
+#     success_url = reverse_lazy('bovino_list')
 
-
-
-
+# class Bovino_Create(CreateView):
+#     model = GANADO
+#     form_class = Ganado_Form
+#     template_name = 'RegBov/regbov_form.html'
+#     success_url = reverse_lazy('bovino_list')
 

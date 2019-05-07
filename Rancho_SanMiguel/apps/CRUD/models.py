@@ -38,7 +38,8 @@ class GANADO(models.Model):
         return self.nombre
 
 class BITACORA_GANADO(models.Model):
-    arete = models.CharField(max_length=10)
+    # arete = models.CharField(max_length=10)
+    bovino = models.ForeignKey(GANADO, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=100)
     lugar = models.CharField(max_length=100)
     fecha = models.DateField()
@@ -48,7 +49,7 @@ class BITACORA_GANADO(models.Model):
         ordering = ["id"]
 
     def __str__(self):
-        return self.arete
+        return self.bovino
 
 
 class HISTORIAL_VENTAS_BOVINO(models.Model):
@@ -66,64 +67,17 @@ class HISTORIAL_VENTAS_BOVINO(models.Model):
     def __str__(self):
         return self.id
 
+class HISTORIAL_VENTAS_CERDOS(models.Model):
+    cantidad = models.FloatField()
+    total = models.FloatField()
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.id
 
 
-# class GANADO(models.Model):
-#     opciones = Choices('Macho','Hembra')
-#     opciones2 = Choices('Vendida','Viva','Muerta')
-#     nombre = models.CharField(max_length=25)
-#     arete= models.CharField(max_length=25)
-#     siniga = models.CharField(max_length=25)
-#     sexo = estado = models.CharField(choices=opciones)
-#     propietario = models.CharField(max_length=25)
-#     ganadera = models.CharField(max_length=25)
-#     no_padre = models.IntegerField()
-#     no_madre = models.IntegerField()
-#     fecha_nacimiento = models.DateTimeField()
-#     tipo_nacimiento= models.DateTimeField()
-#     tipo_parto= models.CharField(max_length=1)
-#     tipo_servicio= models.CharField(max_length=1)
-#     fecha_servicio= models.DateTimeField()
-#     localizacion_fierro = models.CharField(max_length=10)
-#     potrero= models.CharField(max_length=1)
-#     estado = models.CharField(choices=opciones2)
-#     img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
-#     created = models.DateTimeField(auto_now_add=True)
-#     updated = models.DateTimeField(auto_now=True)
-
-#
-# # Borrar la foto vieja si se le da al boton borrar
-# @receiver(post_delete, sender=GANADO)
-# def photo_post_delete_handler(sender, **kwargs):
-#     listiningImage = kwargs['instance']
-#     storage, path = listiningImage.img.storage, listiningImage.img.path
-#     storage.delete(path)
-#
-# # Borrar la foro vieja si se actualiza
-# @receiver(pre_save, sender=GANADO)
-# def update_img(sender, instance, **kwargs):
-#     if instance.pk:
-#         try:
-#             old_img = GANADO.objects.get(pk=instance.pk).img
-#         except:
-#             return
-#         else:
-#             new_img = instance.img
-#             if old_img and old_img.url != new_img.url:
-#                 old_img.delete(save=False)
-
-#
-# class BITACORA_GANADO(models.Model):
-#     arete = models.CharField(max_length=10)
-#     lugar = models.CharField(max_length=100)
-#     fecha = models.DateTimeField()
-#     created = models.DateTimeField(auto_now_add=True)
-#     updated = models.DateTimeField(auto_now=True)
-#     class Meta:
-#         ordering = ["id"]
-#
-#     def __str__(self):
-#         return self.arete
 #
 # class CONTROL_GANADO(models.Model):
 #     arete = models.CharField(max_length=10)
