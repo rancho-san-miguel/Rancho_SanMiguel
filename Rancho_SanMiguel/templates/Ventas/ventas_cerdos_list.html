@@ -16,7 +16,7 @@ Ventas de cerdos
                 <th>Cantidad</th>
                 <th>Total</th>
                 <th>fecha</th>
-                <!--<th>Acciones</th>-->
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +29,11 @@ Ventas de cerdos
                         <td>{{ i.fecha }}</td>
                         <!--<td>{{ i.created }}</td>-->
                         <!--<td>{{ i.updated }}</td>-->
-                        <!--<td>-->
+                        <td>
                             <!--<a class="btn btn-primary" href="{% url 'venta_show' i.pk %}">Ver</a>-->
                             <!--&lt;!&ndash;<a class="btn btn-success" href="#">Editar</a>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<a class="btn btn-danger" href="{% url 'venta_delete' i.pk %}">Eliminar</a>&ndash;&gt;-->
-                        <!--</td>-->
+                            <a class="btn btn-danger" href="{% url 'cerdos_delete' i.pk %}">Eliminar</a>
+                        </td>
                     </tr>
                 {% endfor %}
             {% else %}

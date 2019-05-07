@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base/base.html' %}
 
-</body>
-</html>
+{% block title %}
+Eliminar registros de cerdos
+{% endblock %}
+
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    <h2>Quieres eliminar el objeto con el id:{{ form.id }}</h2>
+    <button class="btn btn-danger" type="submit">Si, Eliminar</button>
+    <a class="btn btn-primary" href="{% url 'cerdos_list' %}">No, Cancelar</a>
+</form>
+{% endblock %}

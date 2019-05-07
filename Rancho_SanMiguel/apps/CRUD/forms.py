@@ -116,13 +116,29 @@ class Historial_Ventas_Bovino_form(forms.ModelForm):
             'fecha':'Fecha de la venta',
         }
         widgets = {
-            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción del producto'}),
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de la venta'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 
-# class Historial_Ventas_Cerdos_form(forms.ModelForm):
-
+class Historial_Ventas_Cerdos_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_CERDOS
+        fields = {
+            'cantidad',
+            'total',
+            'fecha',
+        }
+        labels = {
+            'cantidad':'Cantidad',
+            'total':'Total',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad cerdos'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
 
 
 # class Historial_Ventas_form(forms.ModelForm):

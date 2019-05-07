@@ -3,6 +3,7 @@ from .views import Bovino_Create,Bovino_List, Bovino_Update, Bovino_Show, Bovino
 from .views import Bovino_Galeria_Venta_List, Bovino_Galeria_Venta_Show
 from .views import Bitacora_Create, Bitacora_List, Bitacora_Show, Bitacora_Update, Bitacora_Delete
 from .views import Venta_Bovino_List,Venta_Bovino_Delete, Venta_Bovino_Show
+from .views import Venta_Cerdos_Create, Venta_Cerdos_List, Venta_Cerdos_Delete
 
 from django.contrib.auth.decorators import login_required
 
@@ -28,4 +29,8 @@ urlpatterns = [
     path('ventalist/', Venta_Bovino_List.as_view(), name="venta_list"),
     path('ventadelete/<int:pk>', Venta_Bovino_Delete.as_view(), name="venta_delete"),
     path('ventashow/<int:pk>', Venta_Bovino_Show, name="venta_show"),
+    #Venta de cerdos
+    path('porcino/crear/', Venta_Cerdos_Create.as_view(), name="cerdos_crear"),
+    path('porcino/list/', Venta_Cerdos_List.as_view(), name="cerdos_list"),
+    path('porcino/delete/<int:pk>', Venta_Cerdos_Delete, name="cerdos_delete"),
 ]
