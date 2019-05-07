@@ -16,7 +16,7 @@ Registro bovino
 
 {% block contenido %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
-    <div>
+    <div class="col-md-6">
         <label>{{ form.nombre.label }}:</label>
         {{ form.nombre }}
 
@@ -37,7 +37,8 @@ Registro bovino
 
         <label>{{ form.no_padre.label }}:</label>
         {{ form.no_padre }}
-
+    </div>
+    <div class="col-md-6">
         <label>{{ form.no_madre.label }}:</label>
         {{ form.no_madre }}
 
@@ -74,6 +75,7 @@ Registro bovino
 
         <label>{{ form.img.label }}:</label>
         {{ form.img }}
+        </div>
         <br>
         <br>
 
@@ -96,7 +98,7 @@ Registro bovino
         <div class="trans">
             <button class="btn btn-success" type="submit">Guardar</button>
         </div>
-    </div>
+
     <br>
 </form>
 
