@@ -21,6 +21,7 @@ Ventas de cerdos
         </thead>
         <tbody>
             {% if object_list %}
+            {{object_list|length}}
                 {% for i in object_list %}
                     <tr>
                         <td>{{ i.id }}</td>
@@ -35,12 +36,14 @@ Ventas de cerdos
                             <a class="btn btn-danger" href="{% url 'cerdos_delete' i.pk %}">Eliminar</a>
                         </td>
                     </tr>
+             cont++;
                 {% endfor %}
             {% else %}
                 <h2>No hay registros de ventas de cerdos</h2>
             {% endif %}
         </tbody>
     </table>
+
     <div class="container" align="center">
         <ul class="pager">
         {% if page_obj.has_previous %}
