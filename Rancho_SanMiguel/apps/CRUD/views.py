@@ -10,6 +10,9 @@ from django.http import HttpResponse
 
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
+from datetime import datetime
+
+
 
 class Bovino_Create(CreateView):
     model = GANADO
@@ -181,7 +184,7 @@ class Venta_Bovino_Delete(DeleteView):
 
 
 #---------------------------------------------------------------------------------------------------------------------
-"Venta de leche"
+"Venta de cerdos"
 
 class Venta_Cerdos_Create(CreateView):
     model = HISTORIAL_VENTAS_CERDOS
@@ -248,3 +251,32 @@ def Venta_Leche_Delete(request, pk):
     # else:
     #     form2 = Historial_Ventas_Bovino_form()
 
+
+#---------------------------------------------------------------------------------------------------------------------
+"Notificaciones"
+
+def Notificaciones():
+    ahora = datetime.now()
+    return ahora
+
+def Query_Notificaciones(request):
+    Fecha_Actual = Notificaciones()
+
+    day = Fecha_Actual.day
+    month = Fecha_Actual.month
+    year = Fecha_Actual.year
+
+    if int(day) <= 9:
+        day = "0"+str(day)
+
+    if int(month) <= 9:
+        month = "0"+str(month)
+
+    var = str(year)+"-"+str(month)+"-"+str(day)
+
+    query = HISTORIAL_VENTAS_CERDOS.objects.filter(fecha=var)
+
+    dic = {
+        'form':query,
+    }
+    return render(request, 'base/base.html',dic)
