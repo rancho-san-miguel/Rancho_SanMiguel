@@ -24,6 +24,11 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -56,33 +61,143 @@
 			</ul>
 		</nav>
 	</header>
-	<!-- Header section end -->
-
 
 	<section class="page-header-section set-bg" data-setbg="{% static 'inicio/fondo1.jpg' %}">
 		<div class="container">
-			<h1 class="header-title">En venta<span>.</span></h1>
+			<h1 class="header-title">Galeria<span>.</span></h1>
 		</div>
 	</section>
+
 	<br>
 
-	<div class="hero-slider">
-		{% if object_list %}
-			{% for i in object_list %}
-			<div class="hero-slide-item set-bg" data-setbg="{{ i.img.url }}">
-				<div class="slide-inner">
-					<div class="container">
-						<h1 style="text-align: center; -webkit-text-stroke: 1px black; color:white;">{{ i.nombre }}</h1>
-						<!--<a href="#" class="site-btn sb-light">See Project</a>-->
+
+<div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <!--<ol class="carousel-indicators">-->
+      <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+      <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+      <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+    <!--</ol>-->
+
+    <!-- Wrapper for slides -->
+	  {% if object_list %}
+
+    <div class="carousel-inner">
+		{% for i in object_list %}
+		  <div class="item {% if forloop.first %} active {% endif %}">
+			<img src="{{ i.img.url }}" alt="" style="width:100%;">
+			<div class="carousel-caption">
+			  <h3>{{ i.nombre }}</h3>
+			  <!--<p>LA is always so much fun!</p>-->
+			</div>
+		  </div>
+
+		{% endfor %}
+    </div>
+
+	{% else %}
+		<h2>No registros</h2>
+	{% endif %}
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+	<!--{% if object_list %}-->
+		<!--{% for i in object_list %}-->
+	<!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">-->
+
+		<!--<div class="carousel-inner activate">-->
+			<!--<div class="carousel-item active">-->
+				<!--<img class="d-block w-100" src="{{ i.img.url }}" alt="First slide">-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">-->
+		<!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+		<!--<span class="sr-only">Previous</span>-->
+		<!--</a>-->
+		<!--<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">-->
+		<!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+		<!--<span class="sr-only">Next</span>-->
+		<!--</a>-->
+	<!--</div>-->
+	<!--{% endfor %}-->
+	<!--{% else %}-->
+		<!--<h2>No registros</h2>-->
+	<!--{% endif %}-->
+
+	<br>
+	<br>
+
+
+	<!-- Footer section start -->
+	<footer class="footer-section">
+		<div class="footer-social">
+			<div class="social-links">
+				<a href="#"><i class="fa fa-pinterest"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 offset-lg-3">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="footer-item">
+								<ul>
+									<li><a href="#">Inicio</a></li>
+									<li><a href="#">Informacion</a></li>
+									<li><a href="#">Services</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="footer-item">
+								<ul>
+									<li><a href="#">Portfolio</a></li>
+									<li><a href="#">Blog</a></li>
+									<li><a href="#">Desarrolladores</a></li>
+								</ul>
+							</div>
+						</div>
+						<!--<div class="col-md-4">-->
+							<!--<div class="footer-item">-->
+								<!--<ul>-->
+									<!--<li><a href="#">Privacy</a></li>-->
+									<!--<li><a href="#">Contact us</a></li>-->
+									<!--<li><a href="#">Newsletter</a></li>-->
+									<!--<li><a href="#">Clients Testimonials</a></li>-->
+									<!--<li><a href="#">FAQ</a></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
 					</div>
 				</div>
 			</div>
-			{% endfor %}
-		{% else %}
-			<h2>No hay registros de la Galeria</h2>
-		{% endif %}
-	</div>
-	<br>
+		</div>
+
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+     <!--<div class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved.  <br>This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>-->
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+	</footer>
+	<!-- Footer section end -->
+
+
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>

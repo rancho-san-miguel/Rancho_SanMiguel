@@ -4,6 +4,7 @@ from .views import Bovino_Galeria_Venta_List, Bovino_Galeria_Venta_Show
 from .views import Bitacora_Create, Bitacora_List, Bitacora_Show, Bitacora_Update, Bitacora_Delete
 from .views import Venta_Bovino_List,Venta_Bovino_Delete, Venta_Bovino_Show
 from .views import Venta_Cerdos_Create, Venta_Cerdos_List, Venta_Cerdos_Delete
+from .views import Query_Notificaciones
 
 from django.contrib.auth.decorators import login_required
 
@@ -33,4 +34,6 @@ urlpatterns = [
     path('porcino/crear/', Venta_Cerdos_Create.as_view(), name="cerdos_crear"),
     path('porcino/list/', Venta_Cerdos_List.as_view(), name="cerdos_list"),
     path('porcino/delete/<int:pk>', Venta_Cerdos_Delete, name="cerdos_delete"),
+    #Notificaciones
+    path('notificaciones/', Query_Notificaciones, name="notificacion"),
 ]

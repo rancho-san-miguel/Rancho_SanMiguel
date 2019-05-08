@@ -68,6 +68,9 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
+                        <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'notificacion' %}">({% if form %} {{ form|length }} {% endif %})Actividades</a>
+                    </li>
+                    <li class="nav-item">
                         {% if user.is_authenticated %}
                             <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
                         {% else %}
