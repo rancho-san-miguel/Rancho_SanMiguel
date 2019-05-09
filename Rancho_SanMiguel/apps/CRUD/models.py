@@ -93,6 +93,17 @@ class Notificaciones(models.Model):
     def __str__(self):
         return self.id
 
+class HISTORIAL_VENTAS_LECHE(models.Model):
+    cantidad = models.FloatField()
+    total = models.FloatField()
+    fecha = models.DateField()
+    estado = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.id
+
 
 #
 # class CONTROL_GANADO(models.Model):
