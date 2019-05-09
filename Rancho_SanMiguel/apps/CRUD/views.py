@@ -264,3 +264,4 @@ class Notificaciones_Create(CreateView):
     success_url = reverse_lazy('index2')
 
 
+
