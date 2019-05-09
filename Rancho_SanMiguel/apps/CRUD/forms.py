@@ -1,5 +1,5 @@
 from django import forms
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from django.forms.widgets import SelectDateWidget
 
 
@@ -140,6 +140,21 @@ class Historial_Ventas_Cerdos_form(forms.ModelForm):
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 
+class Notificaciones_form(forms.ModelForm):
+    class Meta:
+        model = Notificaciones
+        fields = {
+            'descripcion',
+            'fecha',
+        }
+        labels = {
+            'descripcion':'Descripción',
+            'fecha':'Fecha del evento',
+        }
+        widgets = {
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de las actividades a realizar'}),
+            'fecha':forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
 
 # class Historial_Ventas_form(forms.ModelForm):
 #     class Meta:

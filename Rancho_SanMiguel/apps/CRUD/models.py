@@ -75,6 +75,21 @@ class HISTORIAL_VENTAS_CERDOS(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.id
+
+class Notificaciones(models.Model):
+    descripcion = models.CharField(max_length=100)
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["id"]
+
     def __str__(self):
         return self.id
 

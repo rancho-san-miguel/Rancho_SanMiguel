@@ -19,10 +19,7 @@ Detalles de bovino
             {% for i in form %}
                 <tr>
                     <th>
-                        <p><strong>#:</strong> {{ i.id }}</p>
-                        <p><strong>Cantidad:</strong> {{ i.nombre }}</p>
-                        <p><strong>Fecha de la venta:</strong> {{ i.fecha }}</p>
-                        <p><strong>Total:</strong> {{ i.total }}</p>
+                        <p><strong>Descripcion:</strong> {{ i.descripcion }}</p>
                     </th>
                 </tr>
             {% endfor %}
@@ -35,7 +32,7 @@ Detalles de bovino
 
 
 
-    <a class="btn btn-primary" href="#">Regresar</a>
+    <a class="btn btn-primary" href="{% url 'index2' %}">Regresar</a>
     <br>
     <br>
     <br>

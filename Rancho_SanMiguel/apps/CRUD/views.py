@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS
-from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form, Historial_Ventas_Cerdos_form
-from .forms import HISTORIAL_VENTAS_CERDOS
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
+from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
+from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -229,12 +229,12 @@ def Venta_Cerdos_Delete(request, pk):
 #---------------------------------------------------------------------------------------------------------------------
 "Notificaciones"
 
-def Notificaciones():
+def Notificaciones_function():
     ahora = datetime.now()
     return ahora
 
 def Query_Notificaciones(request):
-    Fecha_Actual = Notificaciones()
+    Fecha_Actual = Notificaciones_function()
 
     day = Fecha_Actual.day
     month = Fecha_Actual.month
@@ -248,9 +248,19 @@ def Query_Notificaciones(request):
 
     var = str(year)+"-"+str(month)+"-"+str(day)
 
-    query = HISTORIAL_VENTAS_CERDOS.objects.filter(fecha=var)
+    query = Notificaciones.objects.filter(fecha=var)
 
     dic = {
+
         'form':query,
     }
-    return render(request, 'base/base.html',dic)
+    return render(request, 'Ventas/calis.html', dic)
+    # return render(request, 'base/base.html',dic)
+
+class Notificaciones_Create(CreateView):
+    model = Notificaciones
+    form_class = Notificaciones_form
+    template_name = 'Notificaciones/notifi_form.html'
+    success_url = reverse_lazy('index2')
+
+
