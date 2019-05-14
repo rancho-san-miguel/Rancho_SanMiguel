@@ -25,3 +25,17 @@ Index
 	</div>
 {% endblock %}
 
+{% block notificaciones %}
+	{% if form %}
+		({{ form|length }})
+	{% endif %}
+{% endblock %}
+
+{% block datos %}
+	{% if form %}
+		{% for i in form %}
+			<a class="dropdown-item" href="#">{{ i.descripcion }}</a>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
+

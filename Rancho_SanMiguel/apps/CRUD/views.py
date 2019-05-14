@@ -1,12 +1,16 @@
 from django.shortcuts import render
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
+from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+
+from datetime import datetime
+
 
 
 class Bovino_Create(CreateView):
@@ -16,8 +20,8 @@ class Bovino_Create(CreateView):
     success_url = reverse_lazy('bovino_list')
 
 class Bovino_List(ListView):
-    queryset = GANADO.objects.all()
-    # queryset = GANADO.objects.exclude(estado='Vendida').order_by('id')
+    # queryset = GANADO.objects.all()
+    queryset = GANADO.objects.exclude(estado='Vendida').order_by('id')
     # queryset = GANADO.objects.exclude(estado='Vendida')
     template_name = 'RegBov/regbov_list.html'
     paginate_by = 5
@@ -112,6 +116,7 @@ class Bitacora_Delete(DeleteView):
 
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de ganado"
+
 def Bovino_update_ventas_create(request, pk):
     print("Este es el id: ",pk)
     query = GANADO.objects.get(pk=pk)
@@ -122,7 +127,7 @@ def Bovino_update_ventas_create(request, pk):
         if form2.is_valid():
             var = form2.save()
 
-            var.id_bovino = query.nombre
+            # var.id_bovino = query.nombre
             var.id_bovino = pk
             var.save()
 
@@ -177,9 +182,86 @@ class Venta_Bovino_Delete(DeleteView):
     success_url = reverse_lazy('venta_list')
 
 
+#---------------------------------------------------------------------------------------------------------------------
+"Venta de cerdos"
+
+class Venta_Cerdos_Create(CreateView):
+    model = HISTORIAL_VENTAS_CERDOS
+    form_class = Historial_Ventas_Cerdos_form
+    template_name = 'Ventas/ventas_cerdos_form.html'
+    success_url = reverse_lazy('cerdos_list')
+
+class Venta_Cerdos_List(ListView):
+    # queryset = HISTORIAL_VENTAS_CERDOS.objects.all()
+    queryset = HISTORIAL_VENTAS_CERDOS.objects.exclude(estado=True).order_by('id')
+    template_name = 'Ventas/ventas_cerdos_list.html'
+    paginate_by = 5
+
+def Venta_Cerdos_Delete(request, pk):
+    query = HISTORIAL_VENTAS_CERDOS.objects.get(pk=pk)
+    if request.method == 'POST':
+        query.estado = True
+        query.save()
+        return redirect('cerdos_list')
+    dic = {
+        'form':query,
+    }
+    return render(request, 'Ventas/ventas_cerdos_delete.html', dic)
+    #
+    # if request.method == 'POST':
+    #     form2 = Historial_Ventas_Bovino_form(request.POST)
+    #     if form2.is_valid():
+    #         var = form2.save()
+    #
+    #         # var.id_bovino = query.nombre
+    #         var.id_bovino = pk
+    #         var.save()
+    #
+    #         query.estado = 'Vendida'
+    #         query.save()
+    #
+    #
+    #     return redirect('venta_list')
+    # else:
+    #     form2 = Historial_Ventas_Bovino_form()
 
 
+#---------------------------------------------------------------------------------------------------------------------
+"Notificaciones"
 
+def Notificaciones_function():
+    ahora = datetime.now()
+    return ahora
+
+def Query_Notificaciones(request):
+    Fecha_Actual = Notificaciones_function()
+
+    day = Fecha_Actual.day
+    month = Fecha_Actual.month
+    year = Fecha_Actual.year
+
+    if int(day) <= 9:
+        day = "0"+str(day)
+
+    if int(month) <= 9:
+        month = "0"+str(month)
+
+    var = str(year)+"-"+str(month)+"-"+str(day)
+
+    query = Notificaciones.objects.filter(fecha=var)
+
+    dic = {
+
+        'form':query,
+    }
+    return render(request, 'Ventas/calis.html', dic)
+    # return render(request, 'base/base.html',dic)
+
+class Notificaciones_Create(CreateView):
+    model = Notificaciones
+    form_class = Notificaciones_form
+    template_name = 'Notificaciones/notifi_form.html'
+    success_url = reverse_lazy('index2')
 
 
 

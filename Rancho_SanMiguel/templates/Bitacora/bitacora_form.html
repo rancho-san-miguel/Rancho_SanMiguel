@@ -17,8 +17,8 @@ Registro bovino
 {% block contenido %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
     <div>
-        <label>{{ form.arete.label }}:</label>
-        {{ form.arete }}
+        <label>{{ form.bovino.label }}:</label>
+        {{ form.bovino }}
 
         <label>{{ form.descripcion.label }}:</label>
         {{ form.descripcion }}

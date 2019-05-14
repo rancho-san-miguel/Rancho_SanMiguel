@@ -1,5 +1,5 @@
 from django import forms
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from django.forms.widgets import SelectDateWidget
 
 
@@ -81,23 +81,25 @@ class Bitacora_Ganado_form(forms.ModelForm):
     class Meta:
         model = BITACORA_GANADO
         fields = {
-            'arete',
+            'bovino',
             'descripcion',
             'lugar',
             'fecha',
         }
         labels = {
-            'arete':'Arete',
+            'bovino':'Bovino',
             'descripcion':'Descripcion',
             'lugar':'Lugar',
             'fecha':'Fecha',
         }
         widgets = {
-            'arete': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'bovino': forms.TextInput(attrs={'class': 'form-control'}),
+            'bovino': forms.Select(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
             'lugar': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
+
 class Historial_Ventas_Bovino_form(forms.ModelForm):
     class Meta:
         model = HISTORIAL_VENTAS_BOVINO
@@ -114,11 +116,45 @@ class Historial_Ventas_Bovino_form(forms.ModelForm):
             'fecha':'Fecha de la venta',
         }
         widgets = {
-            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción del producto'}),
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de la venta'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 
+class Historial_Ventas_Cerdos_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_CERDOS
+        fields = {
+            'cantidad',
+            'total',
+            'fecha',
+        }
+        labels = {
+            'cantidad':'Cantidad',
+            'total':'Total',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad cerdos'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
+
+class Notificaciones_form(forms.ModelForm):
+    class Meta:
+        model = Notificaciones
+        fields = {
+            'descripcion',
+            'fecha',
+        }
+        labels = {
+            'descripcion':'Descripción',
+            'fecha':'Fecha del evento',
+        }
+        widgets = {
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de las actividades a realizar'}),
+            'fecha':forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
 
 # class Historial_Ventas_form(forms.ModelForm):
 #     class Meta:
