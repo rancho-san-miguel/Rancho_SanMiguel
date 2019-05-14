@@ -103,10 +103,52 @@ class HISTORIAL_VENTAS_LECHE(models.Model):
 
     def __str__(self):
         return self.id
-
+# class GANADO(models.Model):
+#     opciones = Choices('Macho','Hembra')
+#     opciones2 = Choices('Vendida','Viva','Muerta')
+#     nombre = models.CharField(max_length=25)
+#     arete= models.CharField(max_length=25)
+#     siniga = models.CharField(max_length=25)
+#     sexo = estado = models.CharField(choices=opciones)
+#     propietario = models.CharField(max_length=25)
+#     ganadera = models.CharField(max_length=25)
+#     no_padre = models.IntegerField()
+#     no_madre = models.IntegerField()
+#     fecha_nacimiento = models.DateTimeField()
+#     tipo_nacimiento= models.DateTimeField()
+#     tipo_parto= models.CharField(max_length=1)
+#     tipo_servicio= models.CharField(max_length=1)
+#     fecha_servicio= models.DateTimeField()
+#     localizacion_fierro = models.CharField(max_length=10)
+#     potrero= models.CharField(max_length=1)
+#     estado = models.CharField(choices=opciones2)
+#     img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
+#     created = models.DateTimeField(auto_now_add=True)
+#     updated = models.DateTimeField(auto_now=True)
 
 #
-# class CONTROL_GANADO(models.Model):
+# # Borrar la foto vieja si se le da al boton borrar
+# @receiver(post_delete, sender=GANADO)
+# def photo_post_delete_handler(sender, **kwargs):
+#     listiningImage = kwargs['instance']
+#     storage, path = listiningImage.img.storage, listiningImage.img.path
+#     storage.delete(path)
+#
+# # Borrar la foro vieja si se actualiza
+# @receiver(pre_save, sender=GANADO)
+# def update_img(sender, instance, **kwargs):
+#     if instance.pk:
+#         try:
+#             old_img = GANADO.objects.get(pk=instance.pk).img
+#         except:
+#             return
+#         else:
+#             new_img = instance.img
+#             if old_img and old_img.url != new_img.url:
+#                 old_img.delete(save=False)
+
+#
+# class BITACORA_GANADO(models.Model):
 #     arete = models.CharField(max_length=10)
 #     motivo = models.CharField(max_length=30)
 #     descripcion = models.TextField()
@@ -120,6 +162,21 @@ class HISTORIAL_VENTAS_LECHE(models.Model):
 #     def __str__(self):
 #         return self.arete
 #
+
+class CONTROL_GANADO(models.Model):
+    mot = Choices('Pesaje', 'Servicio', 'destete')
+    arete = models.CharField(max_length=10)
+    motivo = models.CharField(choices=mot, max_length=15)
+    descripcion = models.TextField()
+    lugar = models.CharField(max_length=100)
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["id"]
+    def __str__(self):
+        return self.id
+
 # class HISTORIAL_VENTAS(models.Model):
 #     opciones = Choices('Ganado', 'Leche')
 #     tipo = models.CharField(choices=opciones)

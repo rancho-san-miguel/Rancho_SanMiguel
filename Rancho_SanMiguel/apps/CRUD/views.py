@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, CONTROL_GANADO
+from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form, Control_ganado_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -181,6 +183,31 @@ class Venta_Bovino_Delete(DeleteView):
     template_name = 'Ventas/ventas_bovino_delete.html'
     success_url = reverse_lazy('venta_list')
 
+#----------------------------------------------------------------------
+class Controlg_Create(CreateView):
+    model = CONTROL_GANADO
+    form_class = Control_ganado_form
+    template_name = 'control_ganado/control_form.html'
+    success_url = reverse_lazy('control_list')
+
+class Controlg_List(ListView):
+    queryset = CONTROL_GANADO.objects.all()
+    template_name = 'control_ganado/control_list.html'
+    paginate_by = 5
+
+class Controlg_Show(DetailView):
+    model = CONTROL_GANADO
+    template_name = 'control_ganado/control_show.html'
+
+class Controlg_Update(UpdateView):
+    model = CONTROL_GANADO
+    form_class = Bitacora_Ganado_form
+    template_name = 'control_ganado/control_form.html'
+    success_url = reverse_lazy('control_list')
+class Controlg_Delete(DeleteView):
+    model = CONTROL_GANADO
+    template_name = 'control_ganado/control_delete.html'
+    success_url = reverse_lazy('control_list')
 
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de cerdos"
