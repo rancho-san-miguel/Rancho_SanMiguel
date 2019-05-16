@@ -5,6 +5,7 @@ from .views import Bitacora_Create, Bitacora_List, Bitacora_Show, Bitacora_Updat
 from .views import Venta_Bovino_List,Venta_Bovino_Delete, Venta_Bovino_Show
 from .views import Venta_Cerdos_Create, Venta_Cerdos_List, Venta_Cerdos_Delete
 from .views import Query_Notificaciones, Notificaciones_Create
+from .views import Controlg_Create, Controlg_Delete, Controlg_List, Controlg_Show, Controlg_Update
 
 from django.contrib.auth.decorators import login_required
 
@@ -30,6 +31,12 @@ urlpatterns = [
     path('ventalist/', Venta_Bovino_List.as_view(), name="venta_list"),
     path('ventadelete/<int:pk>', Venta_Bovino_Delete.as_view(), name="venta_delete"),
     path('ventashow/<int:pk>', Venta_Bovino_Show, name="venta_show"),
+    #Control_ganado
+    path('controlganado/', Controlg_Create.as_view(), name="control_crear"),
+    path('controllist/', Controlg_List.as_view(), name="control_list"),
+    path('controlshow/<int:pk>', Controlg_Show.as_view(), name="control_show"),
+    path('controlupdate/<int:pk>', Controlg_Update.as_view(), name="control_update"),
+    path('controldelete/<int:pk>', Controlg_Delete.as_view(), name="control_delete"),
     #Venta de cerdos
     path('porcino/crear/', Venta_Cerdos_Create.as_view(), name="cerdos_crear"),
     path('porcino/list/', Venta_Cerdos_List.as_view(), name="cerdos_list"),

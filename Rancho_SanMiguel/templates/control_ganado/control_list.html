@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Control de Ganado
+{% endblock %}
+
+{% block title2 %}
+Control de Ganado
+{% endblock %}
+
+{% block contenido %}
+    <a class="btn btn-primary" href="{% url 'control_crear'%}">Agregar</a>
+    <table class="table table-striped table-bordered">
+        <thead class="bg-success" >
+            <tr>
+                <th>#</th>
+                <th>Arete</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %}
+                {% for i in object_list %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.arete }}</td>
+                        <td>{{ i.fecha }}</td>
+                        <!--<td>{{ i.created }}</td>-->
+                        <!--<td>{{ i.updated }}</td>-->
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'control_show' i.pk %}">Ver</a>
+                            <a class="btn btn-success" href="{% url 'control_update' i.pk %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'control_delete' i.pk %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h2>No hay registros en la Bitacora</h2>
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="container" align="center">
+        <ul class="pager">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-primary " href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </ul>
+    </div>
+
+{% endblock %}
