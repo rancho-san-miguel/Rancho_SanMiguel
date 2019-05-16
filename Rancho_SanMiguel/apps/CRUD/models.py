@@ -26,6 +26,7 @@ class GANADO(models.Model):
     localizacion_fierro = models.CharField(max_length=10)
     #potrero= models.CharField(max_length=1) esto va dentro de control ganado
     estado = models.CharField(choices=opciones2, max_length=10)
+    peso = models.FloatField()
     galeria_venta = models.BooleanField(default=False)
     img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
     created = models.DateTimeField(auto_now_add=True)
@@ -34,9 +35,11 @@ class GANADO(models.Model):
     class Meta:
         ordering = ["id"]
 
+    # NOTA: Si se va a usar en forenkey retornar un nombre en vez del id
     def __str__(self):
         return self.nombre
 
+#NOTA: Si se va a usar en forenkey, retornar un nombre en vez del id
 class BITACORA_GANADO(models.Model):
     # arete = models.CharField(max_length=10)
     bovino = models.ForeignKey(GANADO, on_delete=models.CASCADE)
@@ -101,54 +104,67 @@ class HISTORIAL_VENTAS_LECHE(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["id"]
+
     def __str__(self):
         return self.id
-# class GANADO(models.Model):
-#     opciones = Choices('Macho','Hembra')
-#     opciones2 = Choices('Vendida','Viva','Muerta')
-#     nombre = models.CharField(max_length=25)
-#     arete= models.CharField(max_length=25)
-#     siniga = models.CharField(max_length=25)
-#     sexo = estado = models.CharField(choices=opciones)
-#     propietario = models.CharField(max_length=25)
-#     ganadera = models.CharField(max_length=25)
-#     no_padre = models.IntegerField()
-#     no_madre = models.IntegerField()
-#     fecha_nacimiento = models.DateTimeField()
-#     tipo_nacimiento= models.DateTimeField()
-#     tipo_parto= models.CharField(max_length=1)
-#     tipo_servicio= models.CharField(max_length=1)
-#     fecha_servicio= models.DateTimeField()
-#     localizacion_fierro = models.CharField(max_length=10)
-#     potrero= models.CharField(max_length=1)
-#     estado = models.CharField(choices=opciones2)
-#     img = models.ImageField(verbose_name="Imagen", upload_to='Ganado')
-#     created = models.DateTimeField(auto_now_add=True)
-#     updated = models.DateTimeField(auto_now=True)
+
+class REGISTRO_AGRICOLA(models.Model):
+    producto = models.CharField(max_length=30)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["id"]
+
+    #NOTA: Si se va a usar en forenkey retornar un nombre en vez del id
+    def __str__(self):
+        return self.producto
+
+#NOTA: Si se va a usar en forenkey retornar un nombre en vez del id
+class EN_PROCESO(models.Model):
+    # opciones = Choices('Pacas','Kilogramos')
+    # opciones = Choices('Porciono','Agricola','Bovino')
+    producto = models.ForeignKey(REGISTRO_AGRICOLA, on_delete=models.CASCADE)
+    hectareas = models.IntegerField()
+    cantidad = models.IntegerField()
+    pe = models.IntegerField()
+    # tipo = models.CharField(choices=opciones, max_length=10)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.producto
+
+
+class EN_BODEGA(models.Model):
+    producto = models.CharField(max_length=30)
+    cantidad = models.IntegerField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.id
+
+class HISTORIAL_VENTAS_CULTIVO(models.Model):
+    producto = models.CharField(max_length=30, default='0')
+    cantidad = models.IntegerField()
+    total = models.FloatField()
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 #
-# # Borrar la foto vieja si se le da al boton borrar
-# @receiver(post_delete, sender=GANADO)
-# def photo_post_delete_handler(sender, **kwargs):
-#     listiningImage = kwargs['instance']
-#     storage, path = listiningImage.img.storage, listiningImage.img.path
-#     storage.delete(path)
-#
-# # Borrar la foro vieja si se actualiza
-# @receiver(pre_save, sender=GANADO)
-# def update_img(sender, instance, **kwargs):
-#     if instance.pk:
-#         try:
-#             old_img = GANADO.objects.get(pk=instance.pk).img
-#         except:
-#             return
-#         else:
-#             new_img = instance.img
-#             if old_img and old_img.url != new_img.url:
-#                 old_img.delete(save=False)
-
-#
-# class BITACORA_GANADO(models.Model):
+# class CONTROL_GANADO(models.Model):
 #     arete = models.CharField(max_length=10)
 #     motivo = models.CharField(max_length=30)
 #     descripcion = models.TextField()
@@ -162,21 +178,6 @@ class HISTORIAL_VENTAS_LECHE(models.Model):
 #     def __str__(self):
 #         return self.arete
 #
-
-class CONTROL_GANADO(models.Model):
-    mot = Choices('Pesaje', 'Servicio', 'destete')
-    arete = models.CharField(max_length=10)
-    motivo = models.CharField(choices=mot, max_length=15)
-    descripcion = models.TextField()
-    lugar = models.CharField(max_length=100)
-    fecha = models.DateField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    class Meta:
-        ordering = ["id"]
-    def __str__(self):
-        return self.id
-
 # class HISTORIAL_VENTAS(models.Model):
 #     opciones = Choices('Ganado', 'Leche')
 #     tipo = models.CharField(choices=opciones)

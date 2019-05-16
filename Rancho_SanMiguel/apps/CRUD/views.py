@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
+from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
+
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, CONTROL_GANADO
-from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form, Control_ganado_form
+from .forms import Registro_Agricola_form, En_Proceso_form, En_Bodega_form, Historial_Ventas_Leche_form
+from .forms import Historial_Ventas_Cultivo_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -116,6 +118,8 @@ class Bitacora_Delete(DeleteView):
 
 
 
+
+
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de ganado"
 
@@ -183,31 +187,6 @@ class Venta_Bovino_Delete(DeleteView):
     template_name = 'Ventas/ventas_bovino_delete.html'
     success_url = reverse_lazy('venta_list')
 
-#----------------------------------------------------------------------
-class Controlg_Create(CreateView):
-    model = CONTROL_GANADO
-    form_class = Control_ganado_form
-    template_name = 'control_ganado/control_form.html'
-    success_url = reverse_lazy('control_list')
-
-class Controlg_List(ListView):
-    queryset = CONTROL_GANADO.objects.all()
-    template_name = 'control_ganado/control_list.html'
-    paginate_by = 5
-
-class Controlg_Show(DetailView):
-    model = CONTROL_GANADO
-    template_name = 'control_ganado/control_show.html'
-
-class Controlg_Update(UpdateView):
-    model = CONTROL_GANADO
-    form_class = Bitacora_Ganado_form
-    template_name = 'control_ganado/control_form.html'
-    success_url = reverse_lazy('control_list')
-class Controlg_Delete(DeleteView):
-    model = CONTROL_GANADO
-    template_name = 'control_ganado/control_delete.html'
-    success_url = reverse_lazy('control_list')
 
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de cerdos"
@@ -289,6 +268,153 @@ class Notificaciones_Create(CreateView):
     form_class = Notificaciones_form
     template_name = 'Notificaciones/notifi_form.html'
     success_url = reverse_lazy('index2')
+
+#---------------------------------------------------------------------------------------------------------------------
+"Agricola"
+"CRUD del cultivo"
+class Registro_Agricola_Create(CreateView):
+    model = REGISTRO_AGRICOLA
+    form_class = Registro_Agricola_form
+    template_name = 'Cultivo/cultivo_form.html'
+    success_url = reverse_lazy('cultivo_list')
+
+class Registro_Agricola_List(ListView):
+    queryset = REGISTRO_AGRICOLA.objects.all()
+    template_name = 'Cultivo/cultivo_list.html'
+    paginate_by = 5
+
+class Registro_Agricola_Update(UpdateView):
+    model = REGISTRO_AGRICOLA
+    form_class = Registro_Agricola_form
+    template_name = 'Cultivo/cultivo_form.html'
+    success_url = reverse_lazy('cultivo_list')
+
+class Registro_Agricola_Delete(DeleteView):
+    model = REGISTRO_AGRICOLA
+    template_name = 'Cultivo/cultivo_delete.html'
+    success_url = reverse_lazy('cultivo_list')
+
+"En proceso/que esta cultivado"
+class En_Proceso_Create(CreateView):
+    model = EN_PROCESO
+    form_class = En_Proceso_form
+    template_name = 'Cultivo/cultivo_en_proceso_form.html'
+    success_url = reverse_lazy('cultivo_en_proceso_list')
+
+class En_Proceso_List(ListView):
+    queryset = EN_PROCESO.objects.all()
+    template_name = 'Cultivo/cultivo_en_proceso_list.html'
+    paginate_by = 5
+
+class En_Proceso_Update(UpdateView):
+    model = EN_PROCESO
+    form_class = En_Proceso_form
+    template_name = 'Cultivo/cultivo_en_proceso_form.html'
+    success_url = reverse_lazy('cultivo_en_proceso_list')
+
+class En_Proceso_Delete(DeleteView):
+    model = EN_PROCESO
+    template_name = 'Cultivo/cultivo_en_proceso_delete.html'
+    success_url = reverse_lazy('cultivo_en_proceso_list')
+
+class En_Proceso_Show(DetailView):
+    model = EN_PROCESO
+    template_name = 'Cultivo/cultivo_en_proceso_show.html'
+
+"Almacen/Bodega"
+
+def Create_Or_Update_En_Bodega(request, pk):
+    query1 = EN_PROCESO.objects.get(pk=pk)
+    query2 = EN_BODEGA.objects.get_or_create(producto=query1.producto, defaults={'producto':query1.producto,'cantidad':'0'})
+    query3 = EN_BODEGA.objects.get(producto=query1.producto)
+    # print("Mensaje------------------------------------------------------------------------")
+    # print(query3.id)
+
+    if request.method == 'POST':
+        n1 = int(request.POST['numer1'])
+        query3.cantidad = n1 + int(query3.cantidad)
+        query3.save()
+
+        query1.delete()
+
+        return redirect('cultivo_en_proceso_list')
+
+    dic = {
+        'object':query1,
+    }
+
+    return render(request, 'Cultivo/cultivo_almacen_create.html', dic)
+
+#
+# class En_Proceso_List(ListView):
+#     queryset = EN_PROCESO.objects.all()
+#     template_name = 'Cultivo/cultivo_en_proceso_list.html'
+#     paginate_by = 5
+
+class En_Bodega_List(ListView):
+    queryset = EN_BODEGA.objects.all()
+    template_name = 'Cultivo/cultivo_almacen_list.html'
+    paginate_by = 5
+
+"Venta de lo que hay en bodega"
+# class
+def Venta_Cultivo(request, pk):
+    query1 = EN_BODEGA.objects.get(pk=pk)
+    print("Cantidad-----------------------------------------------------------------------------")
+    print(query1.cantidad)
+    if request.method == 'POST':
+        form = Historial_Ventas_Cultivo_form(request.POST)
+        if form.is_valid():
+            var = form.save()
+            var.producto = query1.producto
+            query1.cantidad = int(query1.cantidad) - int(var.cantidad)
+            query1.save()
+            var.save()
+        return redirect('almacen_list')
+    else:
+        form = Historial_Ventas_Cultivo_form()
+
+    dic = {
+        'form':query1,
+        'form2':form,
+    }
+
+    return render(request, 'Ventas/Venta_Cultivo.html', dic)
+
+
+
+class Venta_Cultivo_List(ListView):
+    queryset = HISTORIAL_VENTAS_CULTIVO.objects.all()
+    template_name = 'Ventas/ventas_cultivo_list.html'
+paginate_by = 5
+
+
+
+#---------------------------------------------------------------------------------------------------------------------
+"Venta de leche"
+
+class Venta_Leche_Create(CreateView):
+    model = HISTORIAL_VENTAS_LECHE
+    form_class = Historial_Ventas_Leche_form
+    template_name = 'Ventas/ventas_leche_form.html'
+    success_url = reverse_lazy('leche_list')
+
+class Venta_Leche_List(ListView):
+    # queryset = HISTORIAL_VENTAS_CERDOS.objects.all()
+    queryset = HISTORIAL_VENTAS_LECHE.objects.exclude(estado=True).order_by('id')
+    template_name = 'Ventas/ventas_leche_list.html'
+    paginate_by = 5
+
+def Venta_Leche_Delete(request, pk):
+    query = HISTORIAL_VENTAS_LECHE.objects.get(pk=pk)
+    if request.method == 'POST':
+        query.estado = True
+        query.save()
+        return redirect('leche_list')
+    dic = {
+        'form':query,
+    }
+    return render(request, 'Ventas/ventas_leche_delete.html', dic)
 
 
 

@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-Registro bovino
+Notificaciones
 {% endblock %}
 
 {% block estilo %}
@@ -17,18 +17,8 @@ Registro bovino
 {% block contenido %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
     <div>
-        <label>{{ form.arete.label }}:</label>
-        {{ form.arete }}
-
-        <label>{{ form.motivo.label }}:</label>
-        {{ form.motivo}}
-
         <label>{{ form.descripcion.label }}:</label>
         {{ form.descripcion }}
-
-        <label>{{ form.lugar.label }}:</label>
-        {{ form.lugar }}
-
         <br>
         <label>{{ form.fecha.label }}:</label>
         {{ form.fecha }}

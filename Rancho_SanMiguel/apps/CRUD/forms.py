@@ -1,5 +1,6 @@
 from django import forms
-from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO
+from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
+from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
 from django.forms.widgets import SelectDateWidget
 
 
@@ -36,6 +37,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto',
             'localizacion_fierro',
             'estado',
+            'peso',
             'galeria_venta',
             'img',
 
@@ -54,6 +56,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto':'Tipo de parto',
             'localizacion_fierro':'Fierro',
             'estado':'Estado',
+            'peso':'Peso de nacimiento',
             'galeria_venta':'Ponerlo a la venta en la galeria',
             'img':'Foto',
         }
@@ -73,6 +76,7 @@ class Ganado_Form(forms.ModelForm):
             'tipo_parto': forms.Select(attrs={'class': 'form-control'}),
             'localizacion_fierro': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la localización del fierro'}),
             'estado': forms.Select(attrs={'class': 'form-control'}),
+            'peso':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el peso, Ej. 120.5'}),
             'galeria_venta': forms.CheckboxInput(),
             'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
         }
@@ -116,58 +120,11 @@ class Historial_Ventas_Bovino_form(forms.ModelForm):
             'fecha':'Fecha de la venta',
         }
         widgets = {
-            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción del producto'}),
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de la venta'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
-class Control_ganado_form(forms.ModelForm):
-    class Meta:
-        model = CONTROL_GANADO
-        fields = {
-            'arete',
-            'motivo',
-            'descripcion',
-            'lugar',
-            'fecha',
-        }
-        labels = {
-            'arete':'Arete',
-            'motivo': 'Motivo',
-            'descripcion':'Descripción',
-            'lugar':'Lugar',
-            'fecha':'Fecha',
-        }
-        widgets = {
-            'arete': forms.TextInput(attrs={'class': 'form-control'}),
-            'motivo': forms.Select(attrs={'class': 'form-control'}),
-            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
-            'lugar': forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
-        }
-class Control_ganado_form(forms.ModelForm):
-    class Meta:
-        model = CONTROL_GANADO
-        fields = {
-            'arete',
-            'motivo',
-            'descripcion',
-            'lugar',
-            'fecha',
-        }
-        labels = {
-            'arete':'Arete',
-            'motivo': 'Motivo',
-            'descripcion':'Descripción',
-            'lugar':'Lugar',
-            'fecha':'Fecha',
-        }
-        widgets = {
-            'arete': forms.TextInput(attrs={'class': 'form-control'}),
-            'motivo': forms.Select(attrs={'class': 'form-control'}),
-            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
-            'lugar': forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
-        }
+
 class Historial_Ventas_Cerdos_form(forms.ModelForm):
     class Meta:
         model = HISTORIAL_VENTAS_CERDOS
@@ -203,28 +160,101 @@ class Notificaciones_form(forms.ModelForm):
             'fecha':forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 
-# class Historial_Ventas_form(forms.ModelForm):
-#     class Meta:
-#         model = HISTORIAL_VENTAS
-#         fields = {
-#             'tipo',
-#             'descripcion',
-#             'cantidad',
-#             'total',
-#             'fecha',
-#         }
-#         labels = {
-#             'tipo':'Tipo de venta',
-#             'descripcion':'Descripción',
-#             'cantidad':'Cantidad',
-#             'total':'Total',
-#             'fecha':'Fecha de la venta',
-#         }
-#         widgets = {
-#             'tipo': forms.Select(attrs={'class': 'form-control'}),
-#             'descripcion': forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripcion del producto'}),
-#             'cantidad': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
-#             'total': forms.TextInput(attrs={'class': 'form-control'}),
-#             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
-#         }
-#
+class Registro_Agricola_form(forms.ModelForm):
+    class Meta:
+        model = REGISTRO_AGRICOLA
+        fields = {
+            'producto',
+        }
+        labels = {
+            'producto':'Producto',
+        }
+        widgets = {
+            'producto':forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del producto Ej. Maiz, Frijol'}),
+        }
+
+class En_Proceso_form(forms.ModelForm):
+    class Meta:
+        model = EN_PROCESO
+        fields = {
+            'producto',
+            'hectareas',
+            'cantidad',
+            'pe',
+        }
+        labels = {
+            'producto': 'Producto',
+            'hectareas':'Hectareas a producir',
+            'cantidad':'Cantidad',
+            'pe':'P.E',
+        }
+        widgets = {
+            'producto':forms.Select(attrs={'class': 'form-control'}),
+            'hectareas':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame las hectareas Ej. 5'}),
+            'cantidad':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la cantidad Ej. 12000'}),
+            'pe':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el P.E'}),
+        }
+
+class En_Bodega_form(forms.ModelForm):
+    class Meta:
+        model = EN_BODEGA
+        fields = {
+            # 'producto',
+            # 'hectareas',
+            'cantidad',
+            # 'pe',
+        }
+        labels = {
+            # 'producto': 'Producto',
+            # 'hectareas': 'Hectareas a producir',
+            'cantidad': 'Cantidad',
+            # 'pe': 'P.E',
+        }
+        widgets = {
+            # 'producto': forms.Select(attrs={'class': 'form-control'}),
+            # 'hectareas': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dame las hectareas Ej. 5'}),
+            'cantidad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dame la cantidad final'}),
+            # 'pe': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dame el P.E'}),
+        }
+
+
+class Historial_Ventas_Leche_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_LECHE
+        fields = {
+            'cantidad',
+            'total',
+            'fecha',
+        }
+        labels = {
+            'cantidad':'Cantidad',
+            'total':'Total',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 15.20'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
+
+class Historial_Ventas_Cultivo_form(forms.ModelForm):
+    class Meta:
+        model = HISTORIAL_VENTAS_CULTIVO
+        fields = {
+            # 'producto',
+            'cantidad',
+            'total',
+            'fecha',
+        }
+        labels = {
+            # 'producto':"Producto",
+            'cantidad':'Cantidad',
+            'total':'Total',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            # 'producto': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
