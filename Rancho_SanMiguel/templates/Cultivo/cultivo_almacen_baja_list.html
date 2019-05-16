@@ -5,49 +5,52 @@ Cultivo
 {% endblock %}
 
 {% block title2 %}
-Ventas de cultivos
+Historial de movimientos
 {% endblock %}
 
 {% block contenido %}
 
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <h3{% if message.tags %} class="{{ message.tags }} btn btn-danger"{% endif %}>{{ message }}</h3>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <table class="table table-striped table-bordered">
         <thead class="bg-success" >
             <tr>
-                <!--<th>#</th>-->
+                <th>#</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Total</th>
-                <th>Fecha</th>
-                <!--<th>Acciones</th>-->
+                <th>Descripcion</th>
             </tr>
         </thead>
         <tbody>
             {% if object_list %}
-
                 {% for i in object_list %}
                     <tr>
-                        <!--<td>{{ i.id }}</td>-->
+                        <td>{{ i.id }}</td>
                         <td>{{ i.producto }}</td>
                         <td>{{ i.cantidad }}</td>
-                        <td>{{ i.total }}</td>
-                        <td>{{ i.fecha }}</td>
-                        <!--<td>{{ i.fecha }}</td>-->
+                        <td>{{ i.descripcion }}</td>
                         <!--<td>{{ i.created }}</td>-->
                         <!--<td>{{ i.updated }}</td>-->
                         <!--<td>-->
-                            <!--<a class="btn btn-primary" href="{% url 'venta_show' i.pk %}">Ver</a>-->
-                            <!--&lt;!&ndash;<a class="btn btn-success" href="#">Editar</a>&ndash;&gt;-->
-                            <!--<a class="btn btn-danger" href="{% url 'cerdos_delete' i.pk %}">Eliminar</a>-->
+                            <!--<a class="btn btn-primary" href="{% url 'venta_cultivo_crear' i.pk %}">Vender</a>-->
+                            <!--<a class="btn btn-danger" href="{% url 'almacen_baja' i.pk %}">Dar de baja</a>-->
+                            <!--<a class="btn btn-success" href="#">Editar</a>-->
+                            <!--<a class="btn btn-danger" href="#">Eliminar</a>-->
+                            <!--<a class="btn btn-info" href="{% url 'almacen_create' i.pk %}">Guardar en la bodega</a>-->
                         <!--</td>-->
                     </tr>
-
                 {% endfor %}
             {% else %}
-                <h2>No hay registros de ventas de cerdos</h2>
+                <h2>No hay registros</h2>
             {% endif %}
         </tbody>
     </table>
-
     <div class="container" align="center">
         <ul class="pager">
         {% if page_obj.has_previous %}

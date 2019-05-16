@@ -38,6 +38,7 @@ Almacen
                         <!--<td>{{ i.updated }}</td>-->
                         <td>
                             <a class="btn btn-primary" href="{% url 'venta_cultivo_crear' i.pk %}">Vender</a>
+                            <a class="btn btn-danger" href="{% url 'almacen_baja' i.pk %}">Dar de baja</a>
                             <!--<a class="btn btn-success" href="#">Editar</a>-->
                             <!--<a class="btn btn-danger" href="#">Eliminar</a>-->
                             <!--<a class="btn btn-info" href="{% url 'almacen_create' i.pk %}">Guardar en la bodega</a>-->

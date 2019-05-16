@@ -66,11 +66,12 @@
                     <li class="nav-item dropdown">
                         <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cultivo</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_create' %}">Registrar</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_list' %}">Listar</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_create' %}">Registrar cultivo</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_list' %}">Listar cultivo</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_en_proceso_create' %}">Registrar una producción</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_en_proceso_list' %}">Listar la produccion</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'almacen_list' %}">Listar almacen</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'almacen_baja_list' %}">Listar los que se dieron de baja</a>
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_cultivo_list' %}">Listar ventas del cultivo</a>
                         </div>
                     </li>

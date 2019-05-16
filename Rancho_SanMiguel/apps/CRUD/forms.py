@@ -1,6 +1,7 @@
 from django import forms
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
+from .models import CULTIVO_ALMACEN_BAJA
 from django.forms.widgets import SelectDateWidget
 
 
@@ -257,4 +258,23 @@ class Historial_Ventas_Cultivo_form(forms.ModelForm):
             'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a vender'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo total'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+        }
+
+class Cultivo_Almacen_Baja_form(forms.ModelForm):
+    class Meta:
+        model = CULTIVO_ALMACEN_BAJA
+        fields = {
+            # 'producto',
+            'cantidad',
+            'descripcion',
+        }
+        labels = {
+            # 'producto',
+            'cantidad':'Cantidad',
+            'descripcion':'Descripción',
+        }
+        widgets = {
+            # 'producto',
+            'cantidad':forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a dar de bajar'}),
+            'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Motivo por el cual se esta dando de baja'}),
         }

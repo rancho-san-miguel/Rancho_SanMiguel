@@ -163,6 +163,26 @@ class HISTORIAL_VENTAS_CULTIVO(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.producto
+
+class CULTIVO_ALMACEN_BAJA(models.Model):
+    producto = models.CharField(max_length=30, default='0')
+    cantidad = models.IntegerField()
+    descripcion = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.id
+
 #
 # class CONTROL_GANADO(models.Model):
 #     arete = models.CharField(max_length=10)

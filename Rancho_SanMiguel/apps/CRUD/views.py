@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
+from .models import CULTIVO_ALMACEN_BAJA
 
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 from .forms import Registro_Agricola_form, En_Proceso_form, En_Bodega_form, Historial_Ventas_Leche_form
-from .forms import Historial_Ventas_Cultivo_form
+from .forms import Historial_Ventas_Cultivo_form, Cultivo_Almacen_Baja_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -395,6 +396,36 @@ class Venta_Cultivo_List(ListView):
     paginate_by = 5
 
 
+def Cultivo_Almacen_Baja(request, pk):
+    queryset = EN_BODEGA.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = Cultivo_Almacen_Baja_form(request.POST)
+        if form.is_valid():
+            var = form.save()
+            var.producto = queryset.producto
+
+            if int(queryset.cantidad) >= int(var.cantidad):
+                queryset.cantidad = int(queryset.cantidad) - int(var.cantidad)
+                queryset.save()
+                var.save()
+            else:
+                messages.info(request, 'Error. No cuentas con el suficiente inventario para dar de baja')
+                var.delete()
+        return redirect('almacen_list')
+    else:
+        form = Cultivo_Almacen_Baja_form()
+
+    dic = {
+        'form1':queryset,
+        'form2':form,
+    }
+
+    return render(request, 'Cultivo/cultivo_almacen_baja.html', dic)
+
+class Listar_Baja_Almacen(ListView):
+    queryset = CULTIVO_ALMACEN_BAJA.objects.all()
+    template_name = 'Cultivo/cultivo_almacen_baja_list.html'
+    paginate_by = 5
 
 #---------------------------------------------------------------------------------------------------------------------
 "Venta de leche"

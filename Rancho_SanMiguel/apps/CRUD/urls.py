@@ -8,7 +8,7 @@ from .views import Query_Notificaciones, Notificaciones_Create
 from .views import Registro_Agricola_Create, Registro_Agricola_List, Registro_Agricola_Update, Registro_Agricola_Delete
 from .views import En_Proceso_Create, En_Proceso_List, En_Proceso_Update, En_Proceso_Delete, En_Proceso_Show
 from .views import Create_Or_Update_En_Bodega, En_Bodega_List,Venta_Leche_Create, Venta_Leche_Delete, Venta_Leche_List
-from .views import Venta_Cultivo, Venta_Cultivo_List
+from .views import Venta_Cultivo, Venta_Cultivo_List, Cultivo_Almacen_Baja, Listar_Baja_Almacen
 
 from django.contrib.auth.decorators import login_required
 
@@ -55,6 +55,8 @@ urlpatterns = [
     #En bodega/almacen
     path('cultivo/almacen/create/<int:pk>', Create_Or_Update_En_Bodega, name='almacen_create'),
     path('cultivo/almacen/list', En_Bodega_List.as_view(), name='almacen_list'),
+    path('cultivo/almacen/baja/<int:pk>', Cultivo_Almacen_Baja, name='almacen_baja'),
+    path('cultivo/almacen/baja/list/', Listar_Baja_Almacen.as_view(), name='almacen_baja_list'),
     #Venta de leche
     path('leche/crear/', Venta_Leche_Create.as_view(), name="leche_crear"),
     path('leche/list/', Venta_Leche_List.as_view(), name="leche_list"),
@@ -62,4 +64,5 @@ urlpatterns = [
     #Venta Cultivo
     path('cultivo/venta/<int:pk>', Venta_Cultivo, name="venta_cultivo_crear"),
     path('cultivo/list/venta', Venta_Cultivo_List.as_view(), name="venta_cultivo_list"),
+
 ]
