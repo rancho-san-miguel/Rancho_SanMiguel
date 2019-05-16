@@ -10,6 +10,7 @@ from .forms import Historial_Ventas_Cultivo_form
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.contrib import messages
 
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
@@ -337,7 +338,7 @@ def Create_Or_Update_En_Bodega(request, pk):
 
         query1.delete()
 
-        return redirect('cultivo_en_proceso_list')
+        return redirect('almacen_list')
 
     dic = {
         'object':query1,
@@ -367,9 +368,14 @@ def Venta_Cultivo(request, pk):
         if form.is_valid():
             var = form.save()
             var.producto = query1.producto
-            query1.cantidad = int(query1.cantidad) - int(var.cantidad)
-            query1.save()
-            var.save()
+
+            if int(query1.cantidad) >= int(var.cantidad):
+                query1.cantidad = int(query1.cantidad) - int(var.cantidad)
+                query1.save()
+                var.save()
+            else:
+                messages.info(request, 'Error. No cuentas con el suficiente inventario para venderlo')
+                var.delete()
         return redirect('almacen_list')
     else:
         form = Historial_Ventas_Cultivo_form()
@@ -386,7 +392,7 @@ def Venta_Cultivo(request, pk):
 class Venta_Cultivo_List(ListView):
     queryset = HISTORIAL_VENTAS_CULTIVO.objects.all()
     template_name = 'Ventas/ventas_cultivo_list.html'
-paginate_by = 5
+    paginate_by = 5
 
 
 

@@ -42,8 +42,8 @@ urlpatterns = [
     path('notificaciones/', Query_Notificaciones, name="notificacion"),
     path('notificaciones/create/', Notificaciones_Create.as_view(), name="notificaciones_crear"),
     #Agricola
-    path('cultivo/create', Registro_Agricola_Create.as_view(), name='cultivo_create'),
-    path('cultivo/list', Registro_Agricola_List.as_view(), name="cultivo_list"),
+    path('cultivo/create/', Registro_Agricola_Create.as_view(), name='cultivo_create'),
+    path('cultivo/list/', Registro_Agricola_List.as_view(), name="cultivo_list"),
     path('cultivo/update/<int:pk>', Registro_Agricola_Update.as_view(), name="cultivo_update"),
     path('cultivo/delete/<int:pk>', Registro_Agricola_Delete.as_view(), name="cultivo_delete"),
     #Agricola en produccion
@@ -61,5 +61,5 @@ urlpatterns = [
     path('leche/delete/<int:pk>', Venta_Leche_Delete, name="leche_delete"),
     #Venta Cultivo
     path('cultivo/venta/<int:pk>', Venta_Cultivo, name="venta_cultivo_crear"),
-    path('cultivo/list/', Venta_Cultivo_List.as_view(), name="cultivo_list"),
+    path('cultivo/list/venta', Venta_Cultivo_List.as_view(), name="venta_cultivo_list"),
 ]

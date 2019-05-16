@@ -254,7 +254,7 @@ class Historial_Ventas_Cultivo_form(forms.ModelForm):
         }
         widgets = {
             # 'producto': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
-            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
-            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
+            'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a vender'}),
+            'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo total'}),
             'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
