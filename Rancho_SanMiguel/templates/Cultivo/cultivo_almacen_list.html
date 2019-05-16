@@ -13,7 +13,7 @@ Almacen
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-            <a{% if message.tags %} class="{{ message.tags }} btn btn-danger"{% endif %}>{{ message }}</a>
+            <h3{% if message.tags %} class="{{ message.tags }} btn btn-danger"{% endif %}>{{ message }}</h3>
             {% endfor %}
         </ul>
     {% endif %}
