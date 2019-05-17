@@ -5,14 +5,17 @@ Cerdos
 {% endblock %}
 
 {% block title2 %}
-Ventas de cerdos
+Venta y compra porcina
 {% endblock %}
 
 {% block contenido %}
+<a class="btn btn-success" href="{% url 'cerdos_crear' %}">Venta</a>
+<a class="btn btn-primary" href="#">Compra</a>
+{% if object_list %}
     <table class="table table-striped table-bordered">
         <thead class="bg-success" >
             <tr>
-                <th>#</th>
+                <!--<th>#</th>-->
                 <th>Cantidad</th>
                 <th>Total</th>
                 <th>fecha</th>
@@ -20,11 +23,9 @@ Ventas de cerdos
             </tr>
         </thead>
         <tbody>
-            {% if object_list %}
-
                 {% for i in object_list %}
                     <tr>
-                        <td>{{ i.id }}</td>
+                        <!--<td>{{ i.id }}</td>-->
                         <td>{{ i.cantidad }}</td>
                         <td>{{ i.total }}</td>
                         <td>{{ i.fecha }}</td>
@@ -36,13 +37,12 @@ Ventas de cerdos
                             <a class="btn btn-danger" href="{% url 'cerdos_delete' i.pk %}">Eliminar</a>
                         </td>
                     </tr>
-
                 {% endfor %}
-            {% else %}
-                <h2>No hay registros de ventas de cerdos</h2>
-            {% endif %}
         </tbody>
     </table>
+    {% else %}
+        <h2>No hay registro de venta/compra porcina</h2>
+    {% endif %}
 
     <div class="container" align="center">
         <ul class="pager">

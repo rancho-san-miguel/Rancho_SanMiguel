@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d2296e0-46ee-4101-9374-ef79fa87826e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_baja.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_baja_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/forms.py" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/models.py" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/urls.py" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cultivo_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cultivo_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Galeria/galeria_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Galeria/galeria_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_list.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/about.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/contacto.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/contacto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html" afterPath="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +24,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+              <folding>
+                <marker date="1558053536695" expanded="false" signature="2218:2234" ph="..." />
+                <marker date="1558053536695" expanded="false" signature="3407:3423" ph="..." />
+                <marker date="1558053536695" expanded="false" signature="3708:3724" ph="..." />
+                <marker date="1558053536695" expanded="false" signature="3836:3852" ph="..." />
+                <marker date="1558053536695" expanded="false" signature="6262:6278" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2005">
+              <caret line="421" column="0" lean-forward="true" selection-start-line="421" selection-start-column="0" selection-end-line="421" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,6 +67,7 @@
       <find>sectio</find>
       <find>section</find>
       <find>Integer</find>
+      <find>NEXT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -46,20 +77,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_delete.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_delete.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_ventas_form.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_show.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_show.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/GaleriaVentas/calis.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/about.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/contacto.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/apps/galeria/models.py" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/detalles.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_form.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_show.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_create.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_form.html" />
@@ -71,7 +95,6 @@
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Notificaciones/notifi_form.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/calis.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/apps/home/views.py" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_form.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_form.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/admin.py" />
@@ -82,9 +105,6 @@
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_create.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/venta_leche_form.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_form.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_en_proceso_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/Venta_Cultivo.html" />
@@ -94,9 +114,20 @@
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cultivo_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/urls.py" />
-        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_list.html" />
         <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_almacen_baja_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/about.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/contacto.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Galeria/galeria_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html" />
+        <option value="$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html" />
       </list>
     </option>
   </component>
@@ -140,7 +171,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,7 +283,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -614,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558028288917</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Historial de movimientos">
+      <created>1558037123097</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1558037123097</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView">
@@ -628,17 +666,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579425" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26172465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49394855" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -679,7 +718,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mejora de las interfaces" />
     <MESSAGE value="librerias" />
     <MESSAGE value="Push de librerias" />
     <MESSAGE value="push" />
@@ -704,7 +742,8 @@
     <MESSAGE value="push sistema casi terminado" />
     <MESSAGE value="push de correccion de errores" />
     <MESSAGE value="push de correccion de errores v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="push de correccion de errores v2" />
+    <MESSAGE value="Historial de movimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Historial de movimientos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -713,44 +752,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Udemy/Django/proyecto3/webplayground/templates/pages/group_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Udemy/Django/proyecto3/webplayground/templates/pages/page_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="46" lean-forward="true" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/media/Galeria/53850251_1273754556104915_6956923889314168832_n.jpg" />
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/media/Galeria/fondo1.jpg" />
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="90" column="28" lean-forward="true" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Notificaciones/notifi_create.html" />
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/home/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/calis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Notificaciones/notifi_form.html" />
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_form.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -763,13 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Galeria/galeria_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -795,13 +789,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_en_proceso_delete.html" />
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -840,13 +827,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Cultivo/cultivo_en_proceso_form.html" />
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/venta_leche_form.html" />
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -861,31 +841,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/galeria/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1052">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -896,18 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/Rancho_SanMiguel/Rancho_SanMiguel/apps/CRUD/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6189">
           <caret line="29" column="45" lean-forward="true" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,7 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-358">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -963,17 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
           <caret line="277" column="107" lean-forward="false" selection-start-line="277" selection-start-column="107" selection-end-line="277" selection-end-column="107" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#385#627#0" expanded="false" />
-            <element signature="e#4340#5056#0" expanded="false" />
-            <element signature="e#5115#5725#0" expanded="false" />
-            <element signature="e#5775#6263#0" expanded="false" />
-            <element signature="e#6316#6634#0" expanded="false" />
-            <element signature="e#6680#7436#0" expanded="false" />
-            <element signature="e#7481#8263#0" expanded="false" />
-            <element signature="e#8322#8939#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -981,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,17 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="421" column="0" lean-forward="true" selection-start-line="421" selection-start-column="0" selection-end-line="421" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1007,9 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="58" column="76" lean-forward="true" selection-start-line="58" selection-start-column="76" selection-end-line="58" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1017,23 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="73" column="110" lean-forward="false" selection-start-line="73" selection-start-column="110" selection-end-line="73" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="174" column="15" lean-forward="false" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,6 +950,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="30" lean-forward="true" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/service.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="49" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="80" column="100" lean-forward="true" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="100" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/detalles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-952">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="64" column="88" lean-forward="false" selection-start-line="64" selection-start-column="88" selection-end-line="64" selection-end-column="88" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/contacto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="73" column="35" lean-forward="false" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/base/baselogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="64" column="125" lean-forward="false" selection-start-line="64" selection-start-column="125" selection-end-line="64" selection-end-column="125" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/portfolio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/home/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="125" lean-forward="false" selection-start-line="23" selection-start-column="125" selection-end-line="23" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2907">
+          <caret line="174" column="15" lean-forward="false" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/RegBov/regbov_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_bovino_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_leche_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Galeria/galeria_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Bitacora/bitacora_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/Ventas/ventas_cerdos_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/templates/base/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+          <folding>
+            <marker date="1558053536695" expanded="false" signature="2218:2234" ph="..." />
+            <marker date="1558053536695" expanded="false" signature="3407:3423" ph="..." />
+            <marker date="1558053536695" expanded="false" signature="3708:3724" ph="..." />
+            <marker date="1558053536695" expanded="false" signature="3836:3852" ph="..." />
+            <marker date="1558053536695" expanded="false" signature="6262:6278" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2005">
+          <caret line="421" column="0" lean-forward="true" selection-start-line="421" selection-start-column="0" selection-end-line="421" selection-end-column="0" />
           <folding />
         </state>
       </provider>
