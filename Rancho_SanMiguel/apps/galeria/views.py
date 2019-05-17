@@ -6,7 +6,6 @@ from .forms import GaleriaForm
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django.urls import reverse_lazy
 
-
 # Create your views here.
 
 "Galeria------------------------------------------------------------------------------------"
