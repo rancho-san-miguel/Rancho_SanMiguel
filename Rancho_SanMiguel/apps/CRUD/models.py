@@ -7,7 +7,7 @@ from django.db.models.signals import post_delete, pre_save
 class GANADO(models.Model):
     opciones = Choices('Macho','Hembra')
     opciones2 = Choices('Vendida','Viva','Muerta')
-    tc = Choices('Uníparo', 'Gemelar MH', 'Gemelar HH', 'Gemelar MM', 'Multiple')
+    tc = Choices('Uníparo', 'Gemelar MH', 'Gemelar HH', 'Gemelar MM', 'Múltiple')
     tp = Choices('Normal', 'Distónico', 'Difícil', 'Cesárea')
     #ts = Choices('Inseminación artificial', 'Monta natural', 'Transeferencia embrionaria')
     nombre = models.CharField(max_length=15)
@@ -94,7 +94,7 @@ class Notificaciones(models.Model):
         ordering = ["id"]
 
     def __str__(self):
-        return self.id
+        return self.descripcion
 
 class HISTORIAL_VENTAS_LECHE(models.Model):
     cantidad = models.FloatField()
@@ -184,7 +184,7 @@ class CULTIVO_ALMACEN_BAJA(models.Model):
         return self.id
 
 class CONTROL_GANADO(models.Model):
-    mot = Choices('Pesaje', 'Servicio', 'destete')
+    mot = Choices('Pesaje', 'Servicio', 'Destete')
     arete = models.CharField(max_length=10)
     motivo = models.CharField(choices=mot, max_length=15)
     descripcion = models.TextField()

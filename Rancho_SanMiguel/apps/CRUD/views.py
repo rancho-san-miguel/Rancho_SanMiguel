@@ -266,6 +266,13 @@ def Query_Notificaciones(request):
     return render(request, 'Ventas/calis.html', dic)
     # return render(request, 'base/base.html',dic)
 
+class Notificaciones_Listar(ListView):
+    queryset = Notificaciones.objects.all()
+    template_name = 'Notificaciones/notificaciones_list.html'
+    paginate_by = 5
+
+
+
 class Notificaciones_Create(CreateView):
     model = Notificaciones
     form_class = Notificaciones_form
@@ -387,8 +394,8 @@ class En_Bodega_List(ListView):
 # class
 def Venta_Cultivo(request, pk):
     query1 = EN_BODEGA.objects.get(pk=pk)
-    print("Cantidad-----------------------------------------------------------------------------")
-    print(query1.cantidad)
+    # print("Cantidad-----------------------------------------------------------------------------")
+    # print(query1.cantidad)
     if request.method == 'POST':
         form = Historial_Ventas_Cultivo_form(request.POST)
         if form.is_valid():

@@ -4,7 +4,7 @@ from .views import Bovino_Galeria_Venta_List, Bovino_Galeria_Venta_Show
 from .views import Bitacora_Create, Bitacora_List, Bitacora_Show, Bitacora_Update, Bitacora_Delete
 from .views import Venta_Bovino_List,Venta_Bovino_Delete, Venta_Bovino_Show
 from .views import Venta_Cerdos_Create, Venta_Cerdos_List, Venta_Cerdos_Delete
-from .views import Query_Notificaciones, Notificaciones_Create
+from .views import Query_Notificaciones, Notificaciones_Create, Notificaciones_Listar
 from .views import Registro_Agricola_Create, Registro_Agricola_List, Registro_Agricola_Update, Registro_Agricola_Delete
 from .views import En_Proceso_Create, En_Proceso_List, En_Proceso_Update, En_Proceso_Delete, En_Proceso_Show
 from .views import Create_Or_Update_En_Bodega, En_Bodega_List,Venta_Leche_Create, Venta_Leche_Delete, Venta_Leche_List
@@ -47,6 +47,7 @@ urlpatterns = [
     path('porcino/delete/<int:pk>', Venta_Cerdos_Delete, name="cerdos_delete"),
     #Notificaciones
     path('notificaciones/', Query_Notificaciones, name="notificacion"),
+    path('notificaciones/listar/', Notificaciones_Listar.as_view(), name="notificacion_listar"),
     path('notificaciones/create/', Notificaciones_Create.as_view(), name="notificaciones_crear"),
     #Agricola
     path('cultivo/create/', Registro_Agricola_Create.as_view(), name='cultivo_create'),

@@ -171,7 +171,7 @@ class Registro_Agricola_form(forms.ModelForm):
             'producto':'Producto',
         }
         widgets = {
-            'producto':forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del producto Ej. Maiz, Frijol'}),
+            'producto':forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del producto Ej. Maíz, Frijol'}),
         }
 
 class Control_ganado_form(forms.ModelForm):
@@ -210,15 +210,15 @@ class En_Proceso_form(forms.ModelForm):
         }
         labels = {
             'producto': 'Producto',
-            'hectareas':'Hectareas a producir',
+            'hectareas':'Hectáreas a producir',
             'cantidad':'Cantidad',
-            'pe':'P.E',
+            'pe':'Producción estimada',
         }
         widgets = {
             'producto':forms.Select(attrs={'class': 'form-control'}),
-            'hectareas':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame las hectareas Ej. 5'}),
+            'hectareas':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame las hectáreas Ej. 5'}),
             'cantidad':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la cantidad Ej. 12000'}),
-            'pe':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el P.E'}),
+            'pe':forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la producción estimada '}),
         }
 
 class En_Bodega_form(forms.ModelForm):
