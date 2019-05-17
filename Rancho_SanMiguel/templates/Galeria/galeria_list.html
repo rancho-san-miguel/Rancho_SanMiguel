@@ -27,12 +27,12 @@ Galería
                     <tr>
                         <!--<td>{{ i.id }}</td>-->
                         <td>{{ i.nombre }}</td>
-                        <td><img src="{{ i.img.url }}" class="col-md-1"></td>
+                        <td><img src="{{ i.img.url }}" class="col-md-2"></td>
                         <!--<td>{{ i.created }}</td>-->
                         <!--<td>{{ i.updated }}</td>-->
                         <td>
-                            <a class="btn btn-primary" href="{% url 'galeria_show' i.pk %}">Ver</a>
-                            <a class="btn btn-success" href="{% url 'galeria_update' i.pk %}">Editar</a>
+                            <a class="btn btn-primary" href="{% url 'galeria_show' i.pk %}">&nbsp;&nbsp;&nbsp;&nbsp;Ver&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            <a class="btn btn-success" href="{% url 'galeria_update' i.pk %}">&nbsp;&nbsp;Editar&nbsp;&nbsp;</a>
                             <a class="btn btn-danger" href="{% url 'galeria_delete' i.pk %}">Eliminar</a>
                         </td>
                     </tr>
@@ -41,7 +41,7 @@ Galería
         </tbody>
     </table>
     {% else %}
-        <h2>No hay registros de la Galería</h2>
+        <h2>No hay registros de la galería</h2>
     {% endif %}
     <div class="container" align="center">
         <ul class="pager">

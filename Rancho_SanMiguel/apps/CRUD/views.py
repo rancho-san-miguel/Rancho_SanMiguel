@@ -98,6 +98,9 @@ class Bitacora_Create(CreateView):
     template_name = 'Bitacora/bitacora_form.html'
     success_url = reverse_lazy('bit_list')
 
+# def Bitacora_Create(request):
+#     query = BITACORA_GANADO
+
 class Bitacora_List(ListView):
     queryset = BITACORA_GANADO.objects.all()
     template_name = 'Bitacora/bitacora_list.html'
@@ -296,7 +299,7 @@ class Controlg_Show(DetailView):
 
 class Controlg_Update(UpdateView):
     model = CONTROL_GANADO
-    form_class = Bitacora_Ganado_form
+    form_class = Control_ganado_form
     template_name = 'control_ganado/control_form.html'
     success_url = reverse_lazy('control_list')
 class Controlg_Delete(DeleteView):
