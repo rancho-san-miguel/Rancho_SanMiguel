@@ -9,6 +9,7 @@ from .views import Registro_Agricola_Create, Registro_Agricola_List, Registro_Ag
 from .views import En_Proceso_Create, En_Proceso_List, En_Proceso_Update, En_Proceso_Delete, En_Proceso_Show
 from .views import Create_Or_Update_En_Bodega, En_Bodega_List,Venta_Leche_Create, Venta_Leche_Delete, Venta_Leche_List
 from .views import Venta_Cultivo, Venta_Cultivo_List, Cultivo_Almacen_Baja, Listar_Baja_Almacen
+from .views import Controlg_Update, Controlg_Show, Controlg_List, Controlg_Delete, Controlg_Create
 
 from django.contrib.auth.decorators import login_required
 
@@ -34,6 +35,12 @@ urlpatterns = [
     path('ventalist/', Venta_Bovino_List.as_view(), name="venta_list"),
     path('ventadelete/<int:pk>', Venta_Bovino_Delete.as_view(), name="venta_delete"),
     path('ventashow/<int:pk>', Venta_Bovino_Show, name="venta_show"),
+    # Control_ganado
+    path('controlganado/', Controlg_Create.as_view(), name="control_crear"),
+    path('controllist/', Controlg_List.as_view(), name="control_list"),
+    path('controlshow/<int:pk>', Controlg_Show.as_view(), name="control_show"),
+    path('controlupdate/<int:pk>', Controlg_Update.as_view(), name="control_update"),
+    path('controldelete/<int:pk>', Controlg_Delete.as_view(), name="control_delete"),
     #Venta de cerdos
     path('porcino/crear/', Venta_Cerdos_Create.as_view(), name="cerdos_crear"),
     path('porcino/list/', Venta_Cerdos_List.as_view(), name="cerdos_list"),

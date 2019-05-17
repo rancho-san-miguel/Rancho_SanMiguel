@@ -1,7 +1,7 @@
 from django import forms
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
 from django.forms.widgets import SelectDateWidget
 
 
@@ -172,6 +172,31 @@ class Registro_Agricola_form(forms.ModelForm):
         }
         widgets = {
             'producto':forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del producto Ej. Maiz, Frijol'}),
+        }
+
+class Control_ganado_form(forms.ModelForm):
+    class Meta:
+        model = CONTROL_GANADO
+        fields = {
+            'arete',
+            'motivo',
+            'descripcion',
+            'lugar',
+            'fecha',
+        }
+        labels = {
+            'arete':'Arete',
+            'motivo': 'Motivo',
+            'descripcion':'Descripción',
+            'lugar':'Lugar',
+            'fecha':'Fecha',
+        }
+        widgets = {
+            'arete': forms.TextInput(attrs={'class': 'form-control'}),
+            'motivo': forms.Select(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
+            'lugar': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class En_Proceso_form(forms.ModelForm):

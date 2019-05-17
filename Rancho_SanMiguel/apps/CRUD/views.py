@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
 
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 from .forms import Registro_Agricola_form, En_Proceso_form, En_Bodega_form, Historial_Ventas_Leche_form
 from .forms import Historial_Ventas_Cultivo_form, Cultivo_Almacen_Baja_form
+from .forms import Control_ganado_form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -270,7 +271,31 @@ class Notificaciones_Create(CreateView):
     form_class = Notificaciones_form
     template_name = 'Notificaciones/notifi_form.html'
     success_url = reverse_lazy('index2')
+#----------------------------------------------------------------------
+class Controlg_Create(CreateView):
+    model = CONTROL_GANADO
+    form_class = Control_ganado_form
+    template_name = 'control_ganado/control_form.html'
+    success_url = reverse_lazy('control_list')
 
+class Controlg_List(ListView):
+    queryset = CONTROL_GANADO.objects.all()
+    template_name = 'control_ganado/control_list.html'
+    paginate_by = 5
+
+class Controlg_Show(DetailView):
+    model = CONTROL_GANADO
+    template_name = 'control_ganado/control_show.html'
+
+class Controlg_Update(UpdateView):
+    model = CONTROL_GANADO
+    form_class = Bitacora_Ganado_form
+    template_name = 'control_ganado/control_form.html'
+    success_url = reverse_lazy('control_list')
+class Controlg_Delete(DeleteView):
+    model = CONTROL_GANADO
+    template_name = 'control_ganado/control_delete.html'
+    success_url = reverse_lazy('control_list')
 #---------------------------------------------------------------------------------------------------------------------
 "Agricola"
 "CRUD del cultivo"
