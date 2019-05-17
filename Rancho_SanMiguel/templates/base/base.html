@@ -29,39 +29,40 @@
                     <li class="nav-item">
                         <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'index' %}" >Inicio</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Galería</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_create' %}">Crear</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_list' %}">Listar</a>
-                        </div>
+                    <li class="nav-item">
+                        <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'galeria_list' %}" >Galería</a>
+                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_create' %}">Crear</a>-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_list' %}">Listar</a>-->
+                        <!--</div>-->
                     </li>
                     <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bovino</a>
+                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ganadería</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_crear' %}">Registrar</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_list' %}">Listar</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_list' %}">Historial de ventas de bovinos</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_crear' %}">Venta de leche</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_list' %}">Listar la venta leche</a>
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_crear' %}">Registrar</a>-->
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_list' %}">Ganado</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_list' %}">Historial de ventas</a>
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_crear' %}">Venta de leche</a>-->
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_list' %}">Venta leche</a>
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Bitácora</a>
                             <!--<div class="dropdown-divider"></div>-->
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="#">Crear registro de leche</a>-->
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="#">Listar registro de leche</a>-->
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bitacora</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_crear' %}">Registrar</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venta de cerdos</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_crear' %}">Registrar</a>
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_list' %}">Listar</a>
-                        </div>
+                    <!--<li class="nav-item dropdown">-->
+                        <!--<a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bitacora</a>-->
+                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_crear' %}">Registrar</a>-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <li class="nav-item ">
+                        <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'cerdos_list' %}">Porcinos</a>
+                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_crear' %}">Venta</a>-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_list' %}">Listar</a>-->
+                        <!--</div>-->
                     </li>
                     <li class="nav-item dropdown">
                         <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cultivo</a>
@@ -75,12 +76,12 @@
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_cultivo_list' %}">Listar ventas del cultivo</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notificaciones</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'notificaciones_crear' %}">Crear</a>
+                    <li class="nav-item ">
+                        <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'notificaciones_crear' %}">Notificaciones</a>
+                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'notificaciones_crear' %}">Crear</a>-->
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
-                        </div>
+                        <!--</div>-->
                     </li>
 
 
@@ -99,9 +100,9 @@
                     </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                            <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+                            <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'logout' %}">Cerrar sesión</a>
                         {% else %}
-                            <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                            <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'login' %}">Inicio de sesión</a>
                         {% endif %}
                     </li>
                 </ul>

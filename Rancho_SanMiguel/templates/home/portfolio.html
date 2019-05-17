@@ -64,7 +64,7 @@
 
 	<section class="page-header-section set-bg" data-setbg="{% static 'inicio/v11.jpg' %}">
 		<div class="container">
-			<h1 class="header-title">Galeria<span>.</span></h1>
+			<h1 style="text-align: center; -webkit-text-stroke: 1px black; color:white;" class="header-title">Galería<span></span></h1>
 		</div>
 	</section>
 
@@ -72,6 +72,7 @@
 
 
 <div class="container">
+	{% if object_list %}
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <!--<ol class="carousel-indicators">-->
@@ -81,7 +82,7 @@
     <!--</ol>-->
 
     <!-- Wrapper for slides -->
-	  {% if object_list %}
+
 
     <div class="carousel-inner">
 		{% for i in object_list %}
@@ -96,9 +97,7 @@
 		{% endfor %}
     </div>
 
-	{% else %}
-		<h2>No registros</h2>
-	{% endif %}
+
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -110,6 +109,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+	{% else %}
+		<h2>No hay registros</h2>
+	{% endif %}
 </div>
 
 
