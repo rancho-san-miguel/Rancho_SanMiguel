@@ -372,6 +372,22 @@ class CONTROL_GANADO(models.Model):
 #     def __str__(self):
 #         return self.no_plan
 
+class DeudoresAcreedores(models.Model):
+    tipo = models.CharField(max_length=40, null=True, blank=True)
+    motivo = models.CharField(max_length=40, null=True, blank=True)
+    monto = models.CharField(max_length=40, null=True, blank=True)
+    fecha = models.DateField()
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creacion")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.id
+
+
 
 # Borrar la foto vieja si se le da al boton borrar
 @receiver(post_delete, sender=GANADO)

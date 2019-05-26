@@ -87,7 +87,8 @@
     <div class="carousel-inner">
 		{% for i in object_list %}
 		  <div class="item {% if forloop.first %} active {% endif %}">
-			<img src="{{ i.img.url }}" alt="" style="width:100%;">
+			<!--<img src="{{ i.img.url }}" alt="" style="width:100%;"> -->
+			   <div class="carousel-item active"> <div class="container"> <img src="{{ i.img.url }}" alt="First slide" class="d-block img-fluid"> </div> </div>
 			<div class="carousel-caption">
 			  <h3>{{ i.nombre }}</h3>
 			  <!--<p>LA is always so much fun!</p>-->

@@ -10,6 +10,7 @@ from .views import En_Proceso_Create, En_Proceso_List, En_Proceso_Update, En_Pro
 from .views import Create_Or_Update_En_Bodega, En_Bodega_List,Venta_Leche_Create, Venta_Leche_Delete, Venta_Leche_List
 from .views import Venta_Cultivo, Venta_Cultivo_List, Cultivo_Almacen_Baja, Listar_Baja_Almacen
 from .views import Controlg_Update, Controlg_Show, Controlg_List, Controlg_Delete, Controlg_Create
+from .views import DeudoresAcreedoresCreate,DeudoresAcreedoresDetail,DeudoresAcreedoresList,DeudoresAcreedoresDelete,DeudoresAcreedoresUpdate
 
 from django.contrib.auth.decorators import login_required
 
@@ -72,5 +73,12 @@ urlpatterns = [
     #Venta Cultivo
     path('cultivo/venta/<int:pk>', Venta_Cultivo, name="venta_cultivo_crear"),
     path('cultivo/list/venta', Venta_Cultivo_List.as_view(), name="venta_cultivo_list"),
+
+    path('DeudoresAcreedores/', DeudoresAcreedoresCreate.as_view(), name='Deudore_Acreedores_create'),
+    path('DeudoresAcreedoreslist/', DeudoresAcreedoresList.as_view(), name='Deudore_Acreedores_list'),
+    path('DeudoresAcreedoresdelete/<int:pk>/', DeudoresAcreedoresDelete.as_view(), name='Deudore_Acreedores_delete'),
+    path('DeudoresAcreedoresshow/<int:pk>/', DeudoresAcreedoresDetail.as_view(), name='Deudore_Acreedores_show'),
+    path('DeudoresAcreedoresupdate/<int:pk>/', DeudoresAcreedoresUpdate.as_view(), name='Deudore_Acreedores_update'),
+
 
 ]

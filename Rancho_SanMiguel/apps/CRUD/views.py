@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO, DeudoresAcreedores
 
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 from .forms import Registro_Agricola_form, En_Proceso_form, En_Bodega_form, Historial_Ventas_Leche_form
 from .forms import Historial_Ventas_Cultivo_form, Cultivo_Almacen_Baja_form
-from .forms import Control_ganado_form
+from .forms import Control_ganado_form, DeudoresAcredoresForm
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -488,5 +488,34 @@ def Venta_Leche_Delete(request, pk):
     }
     return render(request, 'Ventas/ventas_leche_delete.html', dic)
 
+
+
+
+"Deudores Y Acreedores ------------------------------------------------------------------------------------"
+class DeudoresAcreedoresCreate(CreateView):
+    model = DeudoresAcreedores
+    form_class = DeudoresAcredoresForm
+    template_name = 'Deudore_Acreedores/Deudore_Acreedores_form.html'
+    success_url = reverse_lazy('index2')
+
+class DeudoresAcreedoresList(ListView):
+    queryset = DeudoresAcreedores.objects.all()
+    template_name = 'Deudore_Acreedores/Deudore_Acreedores_list.html'
+    paginate_by = 5
+
+class DeudoresAcreedoresDetail(DetailView):
+    model = DeudoresAcreedores
+    template_name = 'Deudore_Acreedores/Deudore_Acreedores_show.html'
+
+class DeudoresAcreedoresDelete(DeleteView):
+    model = DeudoresAcreedores
+    template_name =  'Deudore_Acreedores/Deudore_Acreedores_delete.html'
+    success_url = reverse_lazy('index2')
+
+class DeudoresAcreedoresUpdate(UpdateView):
+    model = DeudoresAcreedores
+    form_class = DeudoresAcredoresForm
+    template_name = 'Deudore_Acreedores/Deudore_Acreedores_form.html'
+    success_url = reverse_lazy('index2')
 
 

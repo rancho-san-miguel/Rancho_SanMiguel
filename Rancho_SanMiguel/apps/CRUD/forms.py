@@ -1,7 +1,7 @@
 from django import forms
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO,DeudoresAcreedores
 from django.forms.widgets import SelectDateWidget
 
 
@@ -302,4 +302,28 @@ class Cultivo_Almacen_Baja_form(forms.ModelForm):
             # 'producto',
             'cantidad':forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a dar de bajar'}),
             'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Motivo por el cual se esta dando de baja'}),
+        }
+
+class DeudoresAcredoresForm(forms.ModelForm):
+    class Meta:
+        model = DeudoresAcreedores
+        fields = {
+            'tipo',
+            'motivo',
+            'monto',
+            'fecha',
+        }
+
+        labels = {
+            'tipo': 'Tipo',
+            'motivo': 'Motivo',
+            'monto': 'Monto',
+            'fecha': 'Fecha',
+         }
+
+        widgets = {
+            'tipo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tipo de persona deudor o acredor'}),
+            'motivo': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Motivo '}),
+            'monto': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Monto'}),
+            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
         }

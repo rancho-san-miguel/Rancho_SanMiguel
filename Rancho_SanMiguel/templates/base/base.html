@@ -84,8 +84,20 @@
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
                         <!--</div>-->
                     </li>
+                    <li class="nav-item ">
+                        <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'Historial_Compras_list' %}">Compras</a>
+                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'notificaciones_crear' %}">Crear</a>-->
+                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
+                        <!--</div>-->
+                    </li>
 
-
+                    <li class="nav-item dropdown">
+                        <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contabilidad</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a style="font-size: 15px;" class="dropdown-item" href="{% url 'Deudore_Acreedores_list' %}">Deudores Y Acreedores</a>
+                        </div>
+                    </li>
 
                 </ul>
 

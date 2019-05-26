@@ -16,6 +16,20 @@ class Galeria(models.Model):
     def __str__(self):
         return self.nombre
 
+class Historial(models.Model):
+    descripcion = models.CharField(max_length=40, null=True, blank=True)
+    total = models.CharField(max_length=40, null=True, blank=True)
+    fecha = models.DateField()
+    img = models.ImageField(verbose_name="Imagen", upload_to='Galeria')
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creacion")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+
+    class Meta:
+        ordering = ["-updated"]
+
+    def __str__(self):
+        return self.descripcion
+
 # Borrar la foto vieja si se le da al boton borrar
 @receiver(post_delete, sender=Galeria)
 def photo_post_delete_handler(sender, **kwargs):
