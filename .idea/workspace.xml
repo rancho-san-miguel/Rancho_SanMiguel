@@ -19,8 +19,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="618" column="38" lean-forward="false" selection-start-line="618" selection-start-column="38" selection-end-line="618" selection-end-column="38" />
+            <state relative-caret-position="50">
+              <caret line="616" column="40" lean-forward="true" selection-start-line="616" selection-start-column="40" selection-end-line="616" selection-end-column="40" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -178,20 +178,6 @@
               <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
               <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rancho_SanMiguel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
-              <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="CRUD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rancho_SanMiguel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
-              <item name="Rancho_SanMiguel" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -656,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558918930569</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="usuarios">
+      <created>1558919174626</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1558919174626</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1129,8 +1122,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rancho_SanMiguel/apps/CRUD/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="618" column="38" lean-forward="false" selection-start-line="618" selection-start-column="38" selection-end-line="618" selection-end-column="38" />
+        <state relative-caret-position="50">
+          <caret line="616" column="40" lean-forward="true" selection-start-line="616" selection-start-column="40" selection-end-line="616" selection-end-column="40" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
