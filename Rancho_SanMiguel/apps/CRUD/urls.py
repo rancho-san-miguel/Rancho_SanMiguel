@@ -11,12 +11,15 @@ from .views import Create_Or_Update_En_Bodega, En_Bodega_List,Venta_Leche_Create
 from .views import Venta_Cultivo, Venta_Cultivo_List, Cultivo_Almacen_Baja, Listar_Baja_Almacen
 from .views import Controlg_Update, Controlg_Show, Controlg_List, Controlg_Delete, Controlg_Create
 
+from .views import CrearUsuario, ListarUsuarios, AddGrupos
+
 from django.contrib.auth.decorators import login_required
 
 from .views import Bovino_edit
 urlpatterns = [
     #bovino
     path('bovino/', Bovino_Create.as_view(), name="bovino_crear"),
+    # path('bovino/crear/', Bovino_Create2, name="bovino_crear2"),
     path('bovinolist/', Bovino_List.as_view(), name="bovino_list"),
     path('bovino/galeria/venta/list/', Bovino_Galeria_Venta_List, name="bovino_galeria_venta_list"),
     path('bovino/galeria/venta/list/<int:pk>', Bovino_Galeria_Venta_Show, name="bovino_galeria_venta_show"),
@@ -73,4 +76,9 @@ urlpatterns = [
     path('cultivo/venta/<int:pk>', Venta_Cultivo, name="venta_cultivo_crear"),
     path('cultivo/list/venta', Venta_Cultivo_List.as_view(), name="venta_cultivo_list"),
 
+
+
+    path('crear/usuario/', CrearUsuario.as_view(), name='crear_usuario'),
+    path('listar/usuario/', ListarUsuarios.as_view(), name='listar_usuario'),
+    path('add/grupos/usuario/<int:pk>', AddGrupos, name='crear_grupos'),
 ]

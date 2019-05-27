@@ -4,6 +4,32 @@ from django.dispatch import receiver
 from django.db.models.signals import post_delete, pre_save
 
 
+
+class GANADO_BITACORA(models.Model):
+    nombre = models.CharField(max_length=15,blank=True, null=True)
+    arete= models.CharField(max_length=10,blank=True, null=True)
+    siniga = models.CharField(max_length=10,blank=True, null=True)
+    sexo = models.CharField(max_length=10,blank=True, null=True)
+    propietario = models.CharField(max_length=20,blank=True, null=True)
+    ganadera = models.CharField(max_length=20,blank=True, null=True)
+    no_padre = models.IntegerField(blank=True, null=True)
+    no_madre = models.IntegerField(blank=True, null=True)
+    # fecha_nacimiento = models.DateField(blank=True, null=True)
+    tipo_nacimiento = models.CharField(max_length=15,blank=True, null=True)
+    tipo_parto = models.CharField(max_length=15,blank=True, null=True)
+    localizacion_fierro = models.CharField(max_length=10,blank=True, null=True)
+    peso = models.FloatField(blank=True, null=True)
+    img = models.ImageField(verbose_name="Imagen", upload_to='Ganado', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["id"]
+
+    # NOTA: Si se va a usar en forenkey retornar un nombre en vez del id
+    def __str__(self):
+        return self.nombre
+
 class GANADO(models.Model):
     opciones = Choices('Macho','Hembra')
     opciones2 = Choices('Vendida','Viva','Muerta')
@@ -18,7 +44,9 @@ class GANADO(models.Model):
     ganadera = models.CharField(max_length=20)
     no_padre = models.IntegerField(blank=True, null=True)
     no_madre = models.IntegerField(blank=True, null=True)
-    fecha_nacimiento = models.DateField()
+    # no_padre = models.ForeignKey(GANADO_PADRE, on_delete=models.CASCADE, blank=True, null=True)
+    # no_madre = models.ForeignKey(GANADO_MADRE, on_delete=models.CASCADE, blank=True, null=True)
+    fecha_nacimiento = models.CharField(max_length=15)
     tipo_nacimiento = models.CharField(choices=tc, max_length=15)
     tipo_parto = models.CharField(choices=tp, max_length=15)
     #tipo_servicio= models.CharField(choices=ts, max_length=15)   esto va dentro de la de control ganado
@@ -38,6 +66,8 @@ class GANADO(models.Model):
     # NOTA: Si se va a usar en forenkey retornar un nombre en vez del id
     def __str__(self):
         return self.nombre
+
+
 
 #NOTA: Si se va a usar en forenkey, retornar un nombre en vez del id
 class BITACORA_GANADO(models.Model):

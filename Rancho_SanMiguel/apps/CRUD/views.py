@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO, GANADO_BITACORA
 
 from .forms import Ganado_Form, Bitacora_Ganado_form, Ganado_Venta_form, Historial_Ventas_Bovino_form
 from .forms import HISTORIAL_VENTAS_CERDOS, Notificaciones_form, Historial_Ventas_Cerdos_form
 from .forms import Registro_Agricola_form, En_Proceso_form, En_Bodega_form, Historial_Ventas_Leche_form
 from .forms import Historial_Ventas_Cultivo_form, Cultivo_Almacen_Baja_form
-from .forms import Control_ganado_form
+from .forms import Control_ganado_form, Ganado_Bitacora_Form
 
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
@@ -25,6 +25,7 @@ class Bovino_Create(CreateView):
     form_class = Ganado_Form
     template_name = 'RegBov/regbov_form.html'
     success_url = reverse_lazy('bovino_list')
+
 
 class Bovino_List(ListView):
     # queryset = GANADO.objects.all()
@@ -133,6 +134,8 @@ def Bovino_update_ventas_create(request, pk):
     print("Este es el id: ",pk)
     query = GANADO.objects.get(pk=pk)
 
+    print("Fecha de nacimiento:-----------------",query.fecha_nacimiento)
+
     "Create ventas"
     if request.method == 'POST':
         form2 = Historial_Ventas_Bovino_form(request.POST)
@@ -146,20 +149,18 @@ def Bovino_update_ventas_create(request, pk):
             query.estado = 'Vendida'
             query.save()
 
+            form3 = GANADO_BITACORA.objects.create(nombre=query.nombre,
+                                                   arete=query.arete,siniga=query.siniga,sexo=query.sexo,
+                                                   propietario=query.propietario, ganadera=query.ganadera,
+                                                   no_padre=query.no_padre, no_madre=query.no_madre,
+                                                   tipo_nacimiento=query.tipo_nacimiento, tipo_parto=query.tipo_parto,
+                                                   localizacion_fierro=query.localizacion_fierro, peso=query.peso,
+                                                   img=query.img)
+            query.delete()
 
         return redirect('venta_list')
     else:
         form2 = Historial_Ventas_Bovino_form()
-
-    "Update Ganado a venta"
-    # if request.method == 'GET':
-    #     form = Ganado_Form(instance=query)
-    # else:
-    #     # form = Ganado_Venta_form(request.POST, instance=query)
-    #     form = Ganado_Form(request.POST, instance=query)
-    #     if form.is_valid():
-    #         form.save()
-    #     return redirect('bovino_list')
 
     dic = {
         'datos':query,
@@ -173,20 +174,26 @@ def Bovino_update_ventas_create(request, pk):
 
 def Venta_Bovino_Show(request, pk):
     query1 = HISTORIAL_VENTAS_BOVINO.objects.get(pk=pk)
-    query2 = GANADO.objects.get(pk=query1.id_bovino)
+    query2 = GANADO_BITACORA.objects.get(pk=pk)
+    # query3 = GANADO_BITACORA.objects.all()
     dic = {
         'form1':query1,
         'form2':query2,
+        # 'form3':query3,
     }
     return render(request, 'Ventas/ventas_bovino_show.html', dic)
 
 
 
 class Venta_Bovino_List(ListView):
-    queryset = HISTORIAL_VENTAS_BOVINO.objects.all()
+    queryset = GANADO_BITACORA.objects.all()
     # queryset = GANADO.objects.filter(estado='Vendida')
     template_name = 'Ventas/ventas_bovino_list.html'
     paginate_by = 5
+
+# def Venta_Bovino_List(request):
+#     queryset = GANADO_BITACORA.objects.all()
+
 
 class Venta_Bovino_Delete(DeleteView):
     model = HISTORIAL_VENTAS_BOVINO
@@ -488,5 +495,146 @@ def Venta_Leche_Delete(request, pk):
     }
     return render(request, 'Ventas/ventas_leche_delete.html', dic)
 
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
+from .forms import SignUpForm
 
+class CrearUsuario(CreateView):
+    model = User
+    form_class = SignUpForm
+    template_name = 'registration/usuario_create.html'
+    success_url = reverse_lazy('listar_usuario')
+
+class ListarUsuarios(ListView):
+    # queryset = User.objects.exclude(username="admin").all()
+    queryset = User.objects.all()
+    template_name = 'registration/usuario_list.html'
+    paginate_by = 5
+
+def AddGrupos(request, pk):
+    usuario = User.objects.get(pk=pk)
+    if request.method == 'POST':
+        usuario.groups.clear()
+        usuario.groups.clear()
+        try:
+            op1 = request.POST['caja1']
+            grupos = Group.objects.get(name="Galeria")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op2 = request.POST['caja2']
+            grupos = Group.objects.get(name="Notificaciones")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op3 = request.POST['caja3']
+            grupos = Group.objects.get(name="Ganaderia")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op4 = request.POST['caja4']
+            grupos = Group.objects.get(name="Porcinos")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op5 = request.POST['caja5']
+            grupos = Group.objects.get(name="Agricultura")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op6 = request.POST['caja6']
+            grupos = Group.objects.get(name="Ganado")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op7 = request.POST['caja7']
+            grupos = Group.objects.get(name="GanadoAdd")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op8 = request.POST['caja8']
+            grupos = Group.objects.get(name="GanadoDel")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op8 = request.POST['caja9']
+            grupos = Group.objects.get(name="GanadoVen")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op8 = request.POST['caja10']
+            grupos = Group.objects.get(name="GanadoUpd")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja11']
+            grupos = Group.objects.get(name="AgriculturaAdd")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja12']
+            grupos = Group.objects.get(name="HisVenBov")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja13']
+            grupos = Group.objects.get(name="Bitacora")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja14']
+            grupos = Group.objects.get(name="Leche")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja15']
+            grupos = Group.objects.get(name="Control")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja16']
+            grupos = Group.objects.get(name="Produccion")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja17']
+            grupos = Group.objects.get(name="Almacen")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja18']
+            grupos = Group.objects.get(name="HisVenAgro")
+            usuario.groups.add(grupos)
+        except:
+            pass
+        try:
+            op9 = request.POST['caja19']
+            grupos = Group.objects.get(name="HisRet")
+            usuario.groups.add(grupos)
+        except:
+            pass
+
+        return redirect('listar_usuario')
+
+    dic = {
+        'form':usuario,
+    }
+    return render(request,'registration/Add_Groups.html', dic)

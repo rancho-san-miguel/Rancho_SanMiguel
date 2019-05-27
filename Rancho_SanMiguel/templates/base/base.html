@@ -15,6 +15,7 @@
 <body style="background:#ebebeb">
 
 <div style="background:url({% static 'inicio/pasto.png' %});">
+
     <nav class="container-fluid" >
         <br>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" style="opacity: 0.8;">
@@ -24,11 +25,13 @@
                 </li>
             </ul>
 
+
             <div class="container-fluid">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'index' %}" >Inicio</a>
                     </li>
+                    {% for field in user.groups.all %} {% if field.name == 'Galeria' %}
                     <li class="nav-item">
                         <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'galeria_list' %}" >Galería</a>
                         <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
@@ -36,60 +39,79 @@
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'galeria_list' %}">Listar</a>-->
                         <!--</div>-->
                     </li>
+                    {% endif %}{% endfor %}
+
+                    {% for field in user.groups.all %} {% if field.name == 'Ganaderia' %}
                     <li class="nav-item dropdown">
                         <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ganadería</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_crear' %}">Registrar</a>-->
+                            {% for field in user.groups.all %} {% if field.name == 'Ganado' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bovino_list' %}">Ganado</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'HisVenBov' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_list' %}">Historial de ventas</a>
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_crear' %}">Venta de leche</a>-->
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'Leche' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'leche_list' %}">Venta leche</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'Bitacora' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Bitácora</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'Control' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'control_list' %}">Control</a>
-                            <!--<div class="dropdown-divider"></div>-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="#">Crear registro de leche</a>-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="#">Listar registro de leche</a>-->
+                            {% endif %}{% endfor %}
                         </div>
                     </li>
-                    <!--<li class="nav-item dropdown">-->
-                        <!--<a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bitacora</a>-->
-                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_crear' %}">Registrar</a>-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
-                        <!--</div>-->
-                    <!--</li>-->
+                    {% endif %}{% endfor %}
+
+                    {% for field in user.groups.all %} {% if field.name == 'Porcinos' %}
                     <li class="nav-item ">
                         <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'cerdos_list' %}">Porcinos</a>
-                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_crear' %}">Venta</a>-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cerdos_list' %}">Listar</a>-->
-                        <!--</div>-->
                     </li>
+                    {% endif %}{% endfor %}
+
+                    {% for field in user.groups.all %} {% if field.name == 'Agricultura' %}
                     <li class="nav-item dropdown">
                         <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agricultura</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_create' %}">Registrar cultivo</a>-->
+                            {% for field in user.groups.all %} {% if field.name == 'AgriculturaAdd' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_list' %}">Inventario agrícola</a>
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_en_proceso_create' %}">Registrar una producción</a>-->
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'Produccion' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'cultivo_en_proceso_list' %}">Producción</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'Almacen' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'almacen_list' %}">Almacén</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'HisVenAgro' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'venta_cultivo_list' %}">Historial de ventas</a>
+                            {% endif %}{% endfor %}
+                            {% for field in user.groups.all %} {% if field.name == 'HisRet' %}
                             <a style="font-size: 15px;" class="dropdown-item" href="{% url 'almacen_baja_list' %}">Historial de retiro de productos</a>
+                            {% endif %}{% endfor %}
                         </div>
                     </li>
+                    {% endif %}{% endfor %}
+
+                    {% for field in user.groups.all %} {% if field.name == 'Notificaciones' %}
                     <li class="nav-item ">
                         <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'notificacion_listar' %}">Notificaciones</a>
-                        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'notificaciones_crear' %}">Crear</a>-->
-                            <!--<a style="font-size: 15px;" class="dropdown-item" href="{% url 'bit_list' %}">Listar</a>-->
-                        <!--</div>-->
                     </li>
+                    {% endif %}{% endfor %}
+
+                    {% if user.is_superuser %}
+                    <li class="nav-item ">
+                        <a style="font-size: 20px;" class="nav-link  text-white" href="{% url 'listar_usuario' %}">Usuarios</a>
+                    </li>
+                    {% endif %}
 
 
 
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
+                    {% for field in user.groups.all %} {% if field.name == 'Notificaciones' %}
                     <li class="nav-item dropdown">
                         <a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" href="#">{% block notificaciones %}  {% endblock %}Actividades</a>
                         <!--<a style="font-size: 20px;" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actividades</a>-->
@@ -99,6 +121,8 @@
                             {% endblock %}
                         </div>
                     </li>
+                    {% endif %}{% endfor %}
+
                     <li class="nav-item">
                         {% if user.is_authenticated %}
                             <a style="font-size: 20px;" class="nav-link text-white" href="{% url 'logout' %}">Cerrar sesión</a>
@@ -116,6 +140,7 @@
     {% block title2 %}
     {% endblock %}
 </h1>
+
 <div class="container">
 {% block contenido %}
 {% endblock %}

@@ -15,8 +15,10 @@ Registro bovino
 
 
 {% block contenido %}
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-    <!--<div class="col-md-6">-->
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
         <label>{{ form.nombre.label }}:</label>
         {{ form.nombre }}
 
@@ -37,8 +39,7 @@ Registro bovino
 
         <label>{{ form.no_padre.label }}:</label>
         {{ form.no_padre }}
-    <!--</div>-->
-    <!--<div class="col-md-6">-->
+
         <label>{{ form.no_madre.label }}:</label>
         {{ form.no_madre }}
 
@@ -52,17 +53,8 @@ Registro bovino
         <label>{{ form.tipo_parto.label }}:</label>
         {{ form.tipo_parto }}
 
-        <!--<label>{{ form.tipo_servicio.label }}:</label>-->
-        <!--{{ form.tipo_servicio }}-->
-
-        <!--<label>{{ form.fecha_servicio.label }}:</label>-->
-        <!--{{ form.fecha_servicio }}-->
-
         <label>{{ form.localizacion_fierro.label }}:</label>
         {{ form.localizacion_fierro }}
-
-        <!--<label>{{ form.potrero.label }}:</label>-->
-        <!--{{ form.potrero }}-->
 
         <label>{{ form.estado.label }}:</label>
         {{ form.estado }}
@@ -81,20 +73,6 @@ Registro bovino
 
         <br>
         <br>
-        <!--<br>-->
-        <!--<br>-->
-
-        <!--<label>{{ form2.arete.label }}</label>-->
-        <!--{{ form2.arete }}-->
-
-        <!--<label>{{ form2.descripcion.label }}</label>-->
-        <!--{{ form2.descripcion }}-->
-
-        <!--<label>{{ form2.lugar.label }}</label>-->
-        <!--{{ form2.lugar }}-->
-
-        <!--<label>{{ form2.fecha.label }}</label>-->
-        <!--{{ form2.fecha }}-->
 
         <div class="trans">
             <button class="btn btn-success" type="submit">Guardar</button>

@@ -24,8 +24,12 @@ Detalles de bovino
                     <p><strong>Sexo:</strong> {{ object.sexo }}</p>
                     <p><strong>Propietario:</strong> {{ object.propietario }}</p>
                     <p><strong>Ganadera:</strong> {{ object.ganadera }}</p>
+                    {% if object.no_padre %}
                     <p><strong>Número del padre:</strong> {{ object.no_padre }}</p>
+                    {% endif %}
+                    {% if object.no_madre %}
                     <p><strong>Número de la madre:</strong> {{ object.no_madre }}</p>
+                    {% endif %}
                     <p><strong>Fecha de nacimiento:</strong> {{ object.fecha_nacimiento }}</p>
                     <p><strong>Tipo de nacimiento:</strong> {{ object.tipo_nacimiento }}</p>
                     <p><strong>Tipo de parto:</strong> {{ object.tipo_parto }}</p>

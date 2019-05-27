@@ -1,9 +1,16 @@
 from django import forms
 from .models import GANADO, BITACORA_GANADO, HISTORIAL_VENTAS_BOVINO, HISTORIAL_VENTAS_CERDOS, Notificaciones
 from .models import REGISTRO_AGRICOLA, EN_PROCESO, EN_BODEGA, HISTORIAL_VENTAS_LECHE, HISTORIAL_VENTAS_CULTIVO
-from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO
+from .models import CULTIVO_ALMACEN_BAJA, CONTROL_GANADO, GANADO_BITACORA
 from django.forms.widgets import SelectDateWidget
 
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+
+
+import datetime
+
+y = datetime.datetime.now()
 
 class Ganado_Venta_form(forms.ModelForm):
     class Meta:
@@ -22,8 +29,7 @@ class Ganado_Venta_form(forms.ModelForm):
 class Ganado_Form(forms.ModelForm):
     # fecha_nacimiento=forms.DateTimeField(input_formats=['%d/%m/%Y'])
     class Meta:
-
-        model  = GANADO
+        model = GANADO
         fields = {
             'nombre',
             'arete',
@@ -70,9 +76,9 @@ class Ganado_Form(forms.ModelForm):
             'sexo':forms.Select(attrs={'class': 'form-control'}),
             'propietario': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del propietario del bovino'}),
             'ganadera': forms.TextInput(attrs={'class': 'form-control','placeholder':'Ganadera'}),
-            'no_padre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el número del padre'}),
-            'no_madre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el número de la madre'}),
-            'fecha_nacimiento': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'no_padre': forms.TextInput(attrs={'class': 'form-control'}),
+            'no_madre': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha_nacimiento': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
             'tipo_nacimiento': forms.Select(attrs={'class': 'form-control'}),
             'tipo_parto': forms.Select(attrs={'class': 'form-control'}),
             'localizacion_fierro': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la localización del fierro'}),
@@ -81,6 +87,65 @@ class Ganado_Form(forms.ModelForm):
             'galeria_venta': forms.CheckboxInput(),
             'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
         }
+
+
+class Ganado_Bitacora_Form(forms.ModelForm):
+    # fecha_nacimiento=forms.DateTimeField(input_formats=['%d/%m/%Y'])
+    class Meta:
+
+        model = GANADO
+        fields = {
+            'nombre',
+            'arete',
+            'siniga',
+            'sexo',
+            'propietario',
+            'ganadera',
+            'no_padre',
+            'no_madre',
+            'fecha_nacimiento',
+            'tipo_nacimiento',
+            'tipo_parto',
+            'localizacion_fierro',
+            'peso',
+            'img',
+
+        }
+        labels = {
+            'nombre':'Nombre',
+            'arete':'Arete',
+            'siniga':'Siniga',
+            'sexo':'Sexo',
+            'propietario':'Propietario',
+            'ganadera':'Ganadera',
+            'no_padre':'Número del padre',
+            'no_madre':'Número de la madre',
+            'fecha_nacimiento':'Fecha de nacimiento',
+            'tipo_nacimiento':'Tipo de nacimiento',
+            'tipo_parto':'Tipo de parto',
+            'localizacion_fierro':'Fierro',
+            'peso':'Peso de nacimiento',
+            'img':'Foto',
+        }
+
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el nombre del bovino'}),
+            'arete': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el codigo del arete del bovino'}),
+            'siniga': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la siniga del bovino'}),
+            'sexo':forms.Select(attrs={'class': 'form-control'}),
+            'propietario': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre del propietario del bovino'}),
+            'ganadera': forms.TextInput(attrs={'class': 'form-control','placeholder':'Ganadera'}),
+            'no_padre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el número del padre'}),
+            'no_madre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame el número de la madre'}),
+            'fecha_nacimiento': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
+            'tipo_nacimiento': forms.Select(attrs={'class': 'form-control'}),
+            'tipo_parto': forms.Select(attrs={'class': 'form-control'}),
+            'localizacion_fierro': forms.TextInput(attrs={'class': 'form-control','placeholder':'Dame la localización del fierro'}),
+            'estado': forms.Select(attrs={'class': 'form-control'}),
+            'img''img': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
+        }
+
 
 class Bitacora_Ganado_form(forms.ModelForm):
     class Meta:
@@ -123,7 +188,7 @@ class Historial_Ventas_Bovino_form(forms.ModelForm):
         widgets = {
             'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Descripción de la venta'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'fecha': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class Historial_Ventas_Cerdos_form(forms.ModelForm):
@@ -142,7 +207,7 @@ class Historial_Ventas_Cerdos_form(forms.ModelForm):
         widgets = {
             'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad cerdos'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 250.70'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'fecha': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class Notificaciones_form(forms.ModelForm):
@@ -196,7 +261,7 @@ class Control_ganado_form(forms.ModelForm):
             'motivo': forms.Select(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
             'lugar': forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'fecha': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class En_Proceso_form(forms.ModelForm):
@@ -260,7 +325,7 @@ class Historial_Ventas_Leche_form(forms.ModelForm):
         widgets = {
             'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo ejemplo: 15.20'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'fecha': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class Historial_Ventas_Cultivo_form(forms.ModelForm):
@@ -282,7 +347,7 @@ class Historial_Ventas_Cultivo_form(forms.ModelForm):
             # 'producto': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad Litros de Leche'}),
             'cantidad': forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a vender'}),
             'total': forms.TextInput(attrs={'class': 'form-control','placeholder':'Costo total'}),
-            'fecha': forms.SelectDateWidget(attrs={'class': 'form-control snps-inline-select'}),
+            'fecha': forms.SelectDateWidget(years=range(y.year-20,y.year+2),attrs={'class': 'form-control snps-inline-select'}),
         }
 
 class Cultivo_Almacen_Baja_form(forms.ModelForm):
@@ -303,3 +368,32 @@ class Cultivo_Almacen_Baja_form(forms.ModelForm):
             'cantidad':forms.TextInput(attrs={'class': 'form-control','placeholder':'Cantidad a dar de bajar'}),
             'descripcion':forms.Textarea(attrs={'class': 'form-control','placeholder':'Motivo por el cual se esta dando de baja'}),
         }
+#
+# class SignUpForm(UserCreationForm):
+#     username = forms.CharField(forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+#     first_name = forms.CharField(forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),max_length=32, help_text='First name')
+#     last_name = forms.CharField(forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),max_length=32, help_text='Last name')
+#     email = forms.EmailField(forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}), max_length=64,help_text='Enter a valid email address')
+#     password1 = forms.CharField(forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+#     password2 = forms.CharField(forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}))
+#     class Meta(UserCreationForm):
+#         model = User
+#         fields = UserCreationForm.Meta.fields + ('first_name','last_name','email')
+
+class SignUpForm(UserCreationForm):
+    # password1 = forms.CharField()
+    # password2 = forms.CharField()
+    class Meta(UserCreationForm):
+        model = User
+
+        fields = UserCreationForm.Meta.fields + ('first_name','last_name','email')
+        widgets = {
+            'username':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de usuario'}),
+            # 'username':forms.CharField(help_text='First name'),
+            'first_name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
+            'last_name':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
+            'email':forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Correo electronico'}),
+            'password1' : forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
+            'password2':forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña otra vez'}),
+        }
+
